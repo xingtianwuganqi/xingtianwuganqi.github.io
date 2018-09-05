@@ -88,8 +88,8 @@
 <meta property="og:description" content="Swift 支持某个页面横竖屏切换与强制横屏Demo地址 首先需要清晰几个概念  UIDeviceOrientation 设备的物理方向   UIDeviceOrientation即我们手持的移动设备的Orientation，是一个三围空间，有六个方向    12345678910111213141516public enum UIDeviceOrientation : Int &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8042403-66f6bdc02757d4fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/412">
-<meta property="og:image" content="http://yoursite.com/Users/jingjun/Documents/md文件/mdImage/swift0.png">
-<meta property="og:updated_time" content="2018-08-16T05:28:43.704Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8042403-8d726cda15e130f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-05T15:14:08.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift 支持某个页面横竖屏切换与强制横屏">
 <meta name="twitter:description" content="Swift 支持某个页面横竖屏切换与强制横屏Demo地址 首先需要清晰几个概念  UIDeviceOrientation 设备的物理方向   UIDeviceOrientation即我们手持的移动设备的Orientation，是一个三围空间，有六个方向    12345678910111213141516public enum UIDeviceOrientation : Int &amp;#123;">
@@ -461,7 +461,7 @@
 </li>
 </ul>
 <p>项目中比demo中布局复杂，使用这两个判断结合的方式进行布局</p>
-<h2 id="强制横屏"><a href="#强制横屏" class="headerlink" title="强制横屏"></a>强制横屏</h2><h3 id="1-关闭-General-中的-Device-orientation-中的-landscapeLeft-与-landscapeRight"><a href="#1-关闭-General-中的-Device-orientation-中的-landscapeLeft-与-landscapeRight" class="headerlink" title="1.关闭 General 中的 Device orientation 中的 landscapeLeft 与 landscapeRight"></a>1.关闭 General 中的 Device orientation 中的 landscapeLeft 与 landscapeRight</h3><p><img src="/Users/jingjun/Documents/md文件/mdImage/swift0.png" alt="avatar"></p>
+<h2 id="强制横屏"><a href="#强制横屏" class="headerlink" title="强制横屏"></a>强制横屏</h2><h3 id="1-关闭-General-中的-Device-orientation-中的-landscapeLeft-与-landscapeRight"><a href="#1-关闭-General-中的-Device-orientation-中的-landscapeLeft-与-landscapeRight" class="headerlink" title="1.关闭 General 中的 Device orientation 中的 landscapeLeft 与 landscapeRight"></a>1.关闭 General 中的 Device orientation 中的 landscapeLeft 与 landscapeRight</h3><p><img src="https://upload-images.jianshu.io/upload_images/8042403-8d726cda15e130f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="avatar"></p>
 <h3 id="2-在AppDelegate中设置app支持的方法-1"><a href="#2-在AppDelegate中设置app支持的方法-1" class="headerlink" title="2.在AppDelegate中设置app支持的方法"></a>2.在AppDelegate中设置app支持的方法</h3><p>这里要设置一个全局变量，判断支持的方向，这里支持一个方向</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var blockRotation = Bool()</span><br><span class="line"></span><br><span class="line">func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -&gt; UIInterfaceOrientationMask &#123;</span><br><span class="line">        if blockRotation &#123;</span><br><span class="line">            return .landscapeLeft</span><br><span class="line">        &#125;</span><br><span class="line">        return .portrait</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3-强制横屏方法"><a href="#3-强制横屏方法" class="headerlink" title="3. 强制横屏方法"></a>3. 强制横屏方法</h3><p>swift移除了NSInvocation, 只能桥接，需要创建桥接文件，注意桥接文件路径</p>

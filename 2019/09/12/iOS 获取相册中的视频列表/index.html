@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Swift," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="努力成为一名优秀的程序员">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="#iOS 获取相册中的视频列表 ####获取相册中的视频文件123456789101112131415161718192021222324func getAllvideo() &amp;#123;        let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumV">
+<meta name="keywords" content="Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 获取相册中的视频列表">
+<meta property="og:url" content="http://yoursite.com/2019/09/12/iOS 获取相册中的视频列表/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="努力成为一名优秀的程序员">
+<meta property="og:description" content="#iOS 获取相册中的视频列表 ####获取相册中的视频文件123456789101112131415161718192021222324func getAllvideo() &amp;#123;        let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumV">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-19T09:01:35.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="努力成为一名优秀的程序员">
+<meta name="twitter:title" content="iOS 获取相册中的视频列表">
+<meta name="twitter:description" content="#iOS 获取相册中的视频列表 ####获取相册中的视频文件123456789101112131415161718192021222324func getAllvideo() &amp;#123;        let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumV">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/09/12/iOS 获取相册中的视频列表/"/>
 
 
 
 
 
-  <title>Hello World</title>
+  <title>iOS 获取相册中的视频列表 | Hello World</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -271,9 +272,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -303,9 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/12/iOS 获取相册中的视频列表/" itemprop="url">iOS 获取相册中的视频列表</a></h1>
+          <h1 class="post-title" itemprop="name headline">iOS 获取相册中的视频列表</h1>
         
 
         <div class="post-meta">
@@ -408,9 +407,7 @@
       
 
       
-        
-          
-            <p>#iOS 获取相册中的视频列表</p>
+        <p>#iOS 获取相册中的视频列表</p>
 <p>####获取相册中的视频文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">func getAllvideo() &#123;</span><br><span class="line"></span><br><span class="line">        let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil)</span><br><span class="line">        print(cameraRolls)</span><br><span class="line">        guard cameraRolls.count &gt; 0 else &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        for i in 0 ..&lt; cameraRolls.count &#123;</span><br><span class="line">            let albumCollection = cameraRolls[i]</span><br><span class="line">            // 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中</span><br><span class="line">            LOGGER.debug(albumCollection.localizedTitle)</span><br><span class="line">            let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil)</span><br><span class="line">    </span><br><span class="line">            for i in 0 ..&lt; albumAssets.count  &#123;</span><br><span class="line">                let asset = albumAssets[i]</span><br><span class="line">                let filetype = asset.mediaType</span><br><span class="line">                if filetype == PHAssetMediaType.video &#123;</span><br><span class="line">                    videoMessage(asset: asset,count: albumAssets.count)</span><br><span class="line">                &#125;</span><br><span class="line">                continue</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <p>####获取视频信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">// 获取PHAsset 对象的信息</span><br><span class="line">  func videoMessage(asset: PHAsset , count: Int) &#123;</span><br><span class="line">        let options = PHVideoRequestOptions()</span><br><span class="line">        options.version = .current</span><br><span class="line">        options.deliveryMode = .automatic</span><br><span class="line">        options.isNetworkAccessAllowed = true  // 获取iCloud 中的视频</span><br><span class="line">        </span><br><span class="line">        var iconImage = UIImage()</span><br><span class="line">        </span><br><span class="line">        let option = PHImageRequestOptions()</span><br><span class="line">        option.resizeMode = PHImageRequestOptionsResizeMode.fast</span><br><span class="line">        // 获取视频对于的图片</span><br><span class="line">        PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 116, height: 78), contentMode: PHImageContentMode.default, options: option) &#123; (image, info) in</span><br><span class="line">            if let img = image &#123;</span><br><span class="line">                iconImage = img</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        PHImageManager.default().requestAVAsset(forVideo: asset, options: options) &#123; [weak self](asset, audioMix, info) in</span><br><span class="line">            </span><br><span class="line">            LOGGER.debug(asset)</span><br><span class="line">            LOGGER.debug(audioMix)</span><br><span class="line">            LOGGER.debug(info)</span><br><span class="line">            </span><br><span class="line">            guard let ass = asset else &#123;</span><br><span class="line">                return</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            guard let url = ass as? AVURLAsset else &#123;</span><br><span class="line">                return</span><br><span class="line">            &#125;</span><br><span class="line">            var size : Float = 0</span><br><span class="line">            do &#123;</span><br><span class="line">                let si = try url.url.resourceValues(forKeys: [URLResourceKey.fileSizeKey])</span><br><span class="line">                size = Float(si.fileSize ?? 0) / (1024.0*1024.0)</span><br><span class="line">            &#125;catch &#123;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            // 计算时长</span><br><span class="line">            let time = ass.duration</span><br><span class="line">            let seconds = ceil(Float(time.value)/Float(time.timescale))</span><br><span class="line">            let minute = String(format: &quot;%ld&quot;, Int(floor(seconds / 60)))</span><br><span class="line">            let second = String(format: &quot;%.2ld&quot;, Int(seconds) % 60)</span><br><span class="line">            let times = &quot;\(minute):\(second)&quot;</span><br><span class="line">        </span><br><span class="line">            //获取拍摄时间</span><br><span class="line">            let date = ass.creationDate?.dateValue</span><br><span class="line">            let dataFormat = DateFormatter()</span><br><span class="line">            dataFormat.dateFormat = &quot;yyyy:MM:dd HH:mm:ss&quot;</span><br><span class="line">            let cDate = dataFormat.string(from: date ?? Date(timeIntervalSinceNow: 0))</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            let name = url.url.absoluteString.components(separatedBy: &quot;/&quot;).last?.components(separatedBy: &quot;.&quot;).first ?? &quot;&quot;</span><br><span class="line">            let format = url.url.absoluteString.components(separatedBy: &quot;/&quot;).last?.components(separatedBy: &quot;.&quot;).last ?? &quot;&quot;</span><br><span class="line">            </span><br><span class="line">            let videoinfo = videoInfo(image: iconImage, name: name, time: times, urlStr: url.url.absoluteString, length: times, selected: false, date: cDate, size: size, second: String(format: &quot;%.0f&quot;, seconds),format: format)</span><br><span class="line">            // 一定要在主线程中加入到数组，不然会出现崩溃</span><br><span class="line">            DispatchQueue.main.async &#123;</span><br><span class="line">                self?.videoArr.append(videoinfo)</span><br><span class="line">                self?._mainTableView.reloadData()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <p>#在测试中，上述方法可以获取相册视频的文件地址，但是在部分手机上，将文件地址转换成data上传到服务器时出错了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let data : Data</span><br><span class="line">        do &#123;</span><br><span class="line">            data = try Data.init(contentsOf: URL.init(string: path))</span><br><span class="line">            manager?.put(data, key: key, token: token, complete: &#123; [weak self](info, key, resp) in</span><br><span class="line">          </span><br><span class="line">                &#125;, option: options)</span><br><span class="line">        &#125;catch let error &#123;</span><br><span class="line">            // 这里报错，打印出来是</span><br><span class="line">            /*</span><br><span class="line">          Error Domain=NSCocoaErrorDomain Code=257 &quot;The file “IMG_0288.MP4” couldn’t be\</span><br><span class="line">          opened because you don’t have permission to view it.&quot; UserInfo=</span><br><span class="line">          &#123;NSFilePath=/var/mobile/Media/DCIM/100APPLE/IMG_0288.MP4, </span><br><span class="line">          NSUnderlyingError=0x17d761b0 &#123;Error Domain=NSPOSIXErrorDomain Code=1 </span><br><span class="line">          &quot;Operation not permitted&quot;&#125;&#125;</span><br><span class="line"></span><br><span class="line">            */</span><br><span class="line">            print(error)</span><br><span class="line">            LOGGER.debug(&quot;filepath 转 data 失败&quot;)</span><br><span class="line">            HUDUtilInstance.showHUD(message: &quot;获取视频失败&quot;)</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
@@ -420,8 +417,6 @@
 <p>####将视频写入到本地，从本地读取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">// 获取视频</span><br><span class="line">    func getVideo(asset: PHAsset,fileName: String,resource: PHAssetResource,info: videoInfo) &#123;</span><br><span class="line">        if #available(iOS 9.1, *) &#123;</span><br><span class="line">            if asset.mediaType == PHAssetMediaType.video || asset.mediaSubtypes == PHAssetMediaSubtype.photoLive &#123;</span><br><span class="line">            </span><br><span class="line">                let pathMovieFile = NSTemporaryDirectory().appendingPathComponent(fileName)</span><br><span class="line">                try? FileManager.default.removeItem(atPath: pathMovieFile)</span><br><span class="line">                </span><br><span class="line">                PHAssetResourceManager.default().writeData(for: resource, toFile: URL.init(fileURLWithPath: pathMovieFile), options: nil) &#123; [weak self](error) in</span><br><span class="line">                    guard error == nil else &#123;</span><br><span class="line">                        return</span><br><span class="line">                    &#125;</span><br><span class="line">//                    do &#123;</span><br><span class="line">////                        let data = try Data.init(contentsOf: URL.init(fileURLWithPath: pathMovieFile))</span><br><span class="line">////                        print(&quot;转data成功&quot;)</span><br><span class="line">//                    &#125;catch let error&#123;</span><br><span class="line">//                        print(error)</span><br><span class="line">//                        print(&quot;转data失败&quot;)</span><br><span class="line">//                    &#125;</span><br><span class="line">                    var video = info</span><br><span class="line">                    video.setUrl(url: pathMovieFile) // 获取到视频url后存入到视频信息中</span><br><span class="line">                    // 刷新列表， 一定要在主线程中加入到数组，不然会出现崩溃</span><br><span class="line">                    DispatchQueue.main.async &#123;</span><br><span class="line">                        self?.videoArr.append(video)</span><br><span class="line">                        self?._mainTableView.reloadData()</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                </span><br><span class="line">            &#125;else&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // Fallback on earlier versions</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">        // 转成data</span><br><span class="line">        let data : Data</span><br><span class="line">        do &#123;</span><br><span class="line">            data = try Data.init(contentsOf: URL.init(fileURLWithPath: path))</span><br><span class="line">            </span><br><span class="line">        &#125;catch let error &#123;</span><br><span class="line">            print(error)</span><br><span class="line">            LOGGER.debug(&quot;filepath 转 data 失败&quot;)</span><br><span class="line">            HUDUtilInstance.showHUD(message: &quot;获取视频失败&quot;)</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
 <p>####最后注意在适合的地方删除本地的缓存</p>
 
-          
-        
       
     </div>
     
@@ -436,551 +431,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/Swift 支持横竖屏与强制横屏/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刑天舞干戚">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/20981922?s=400&u=f51860d1860342de15ef777fbf05da7f4e53d9d8&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/16/Swift 支持横竖屏与强制横屏/" itemprop="url">Swift 支持某个页面横竖屏切换与强制横屏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-16T00:00:00+08:00">
-                2018-08-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Swift/" rel="tag"># Swift</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,300
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h1 id="Swift-支持某个页面横竖屏切换与强制横屏"><a href="#Swift-支持某个页面横竖屏切换与强制横屏" class="headerlink" title="Swift 支持某个页面横竖屏切换与强制横屏"></a>Swift 支持某个页面横竖屏切换与强制横屏</h1><p><a href="https://github.com/xingtianwuganqi/LandscapeDemo" target="_blank" rel="noopener">Demo地址</a></p>
-<p>首先需要清晰几个概念</p>
-<ul>
-<li><p>UIDeviceOrientation 设备的物理方向 </p>
-<ul>
-<li>UIDeviceOrientation即我们手持的移动设备的Orientation，是一个三围空间，有六个方向</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public enum UIDeviceOrientation : Int &#123;</span><br><span class="line"></span><br><span class="line">    case unknown</span><br><span class="line"></span><br><span class="line">    case portrait // Device oriented vertically, home button on the bottom</span><br><span class="line"></span><br><span class="line">    case portraitUpsideDown // Device oriented vertically, home button on the top</span><br><span class="line"></span><br><span class="line">    case landscapeLeft // Device oriented horizontally, home button on the right</span><br><span class="line"></span><br><span class="line">    case landscapeRight // Device oriented horizontally, home button on the left</span><br><span class="line"></span><br><span class="line">    case faceUp // Device oriented flat, face up</span><br><span class="line"></span><br><span class="line">    case faceDown // Device oriented flat, face down</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/16/Swift 支持横竖屏与强制横屏/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/16/Swift 支持横竖屏与强制横屏/" rel="next" title="Swift 支持某个页面横竖屏切换与强制横屏">
+                <i class="fa fa-chevron-left"></i> Swift 支持某个页面横竖屏切换与强制横屏
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/09/iOS 获取String中的url并用其他颜色显示/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刑天舞干戚">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/20981922?s=400&u=f51860d1860342de15ef777fbf05da7f4e53d9d8&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/09/iOS 获取String中的url并用其他颜色显示/" itemprop="url">iOS 获取String中的url并用其他颜色显示</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-09T00:00:00+08:00">
-                2018-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  366
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="iOS-获取String中的url并用其他颜色显示"><a href="#iOS-获取String中的url并用其他颜色显示" class="headerlink" title="iOS 获取String中的url并用其他颜色显示"></a>iOS 获取String中的url并用其他颜色显示</h1><h3 id="这里用textView显示带url的String"><a href="#这里用textView显示带url的String" class="headerlink" title="这里用textView显示带url的String"></a>这里用textView显示带url的String</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fileprivate let detailText	= UITextView().then &#123; (textview)in</span><br><span class="line"></span><br><span class="line">    textview.font = UIFont.systemFont(ofSize:14)</span><br><span class="line"></span><br><span class="line">    textview.textColor = UIColor(hexString:&quot;#333333&quot;)</span><br><span class="line"></span><br><span class="line">    textview.isEditable =false;        //必须禁止输入，否则点击将弹出输入键盘</span><br><span class="line"></span><br><span class="line">    textview.isScrollEnabled =false;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/09/iOS 获取String中的url并用其他颜色显示/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/mac 蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刑天舞干戚">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/20981922?s=400&u=f51860d1860342de15ef777fbf05da7f4e53d9d8&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/08/mac 蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法/" itemprop="url">mac 蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T00:00:00+08:00">
-                2018-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  65
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="mac-蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法"><a href="#mac-蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法" class="headerlink" title="mac 蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法"></a>mac 蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法</h1><h3 id="网上找的方法，记录一下"><a href="#网上找的方法，记录一下" class="headerlink" title="网上找的方法，记录一下"></a>网上找的方法，记录一下</h3><p>find ~/Library -name com.apple.Bluetooth.*.plist -exec rm{}\;sudo rm /Library/Preferences/com.apple.Bluetooth.plist</p>
-<p>重启之后重新配置一下蓝牙设备。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -990,10 +470,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1001,6 +482,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1021,8 +506,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1114,6 +608,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取信息"><span class="nav-number">1.</span> <span class="nav-text">获取信息</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1269,6 +779,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

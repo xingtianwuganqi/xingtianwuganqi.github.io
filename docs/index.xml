@@ -1,19 +1,82 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>Ethan编程小站</title>
     <link>https://xingtianwuganqi.github.io/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on Ethan编程小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Jun 2024 17:51:16 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://xingtianwuganqi.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
-      <link>https://xingtianwuganqi.github.io/posts/my-first-post/</link>
-      <pubDate>Wed, 26 Jun 2024 17:51:16 +0800</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/my-first-post/</guid>
-      <description></description>
+      <title>iOS cell的复用问题及解决办法</title>
+      <link>https://xingtianwuganqi.github.io/posts/ios-cell%E7%9A%84%E5%A4%8D%E7%94%A8%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/ios-cell%E7%9A%84%E5%A4%8D%E7%94%A8%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>UITableView中单元格复用有两种方法,dequeueReusableCell与dequeueReusableCell:indexPath.&#xA;// 1 open func dequeueReusableCell(withIdentifier identifier: String) -&amp;gt; UITableViewCell? // Used by the delegate to acquire an already allocated cell, in lieu of allocating a new one. // 2 @available(iOS 6.0, *) open func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -&amp;gt; UITableViewCell // newer dequeue method guarantees a cell is returned and resized properly, assuming identifier is registered 这两个方法的区别 1.方法1返回的cell是一个含有这个重用标识符的无效cell,这个cell没有初始化，需要在下面判断cell是否是空，是空就初始化&#xA;var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: &amp;#34;CustomTableCell&amp;#34;) if cell == nil { cell = UITableViewCell.</description>
+    </item>
+    <item>
+      <title>创建私有cocoaPods库及遇到的问题</title>
+      <link>https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>1 .创建远端（github/gitlab）仓库 例如：创建-&amp;gt;projectMain作为项目主功能仓库，创建-&amp;gt;project_login为后期引用的（登录）组件化工程。创建-&amp;gt;project_SDK为后期引用的（基础组件SDK）组件化工程。创建-&amp;gt;project_Repo为版本管理仓库。。等等&#xA;2.创建本地仓库 例如：新建桌面文件A文件（如有多级仓库可在A文件下创建子文件a文件、b文件、c文件等）&#xA;3.将远端URL仓库克隆至本地: #关键代码 git clone http://xxxx.git tips cd 至A文件执行克隆，如：git clone http://project_login.git 4. 创建podspec文件（描述pod库版本文件）: pod spec create 工程名称 如：进入步骤3中克隆的项目文件，在隐藏文件.git同级执行：pod spec create project_login&#xA;tips pod spec create project_login 5.配置spec（描述pod库版本文件）:直接XCode打开或者文本编译器打开 Pod::Spec.new do |spec| spec.name = &amp;#34;project_login&amp;#34; spec.version = &amp;#34;1.0.2&amp;#34; spec.summary = &amp;#34;project_login.&amp;#34; spec.description = &amp;lt;&amp;lt;-DESC project_login DESC spec.homepage = &amp;#34;http://192.168.65.252/jingjun/project_login.git&amp;#34; spec.license = { :type =&amp;gt; &amp;#34;MIT&amp;#34;, :file =&amp;gt; &amp;#34;LICENSE&amp;#34; } spec.swift_version = &amp;#39;4.0&amp;#39; spec.author = { &amp;#34;jingjun&amp;#34; =&amp;gt; &amp;#34;254032134@qq.com&amp;#34; } spec.</description>
+    </item>
+    <item>
+      <title>iOS 实现列表下拉顶部图片放大</title>
+      <link>https://xingtianwuganqi.github.io/posts/ios-%E5%AE%9E%E7%8E%B0%E5%88%97%E8%A1%A8%E4%B8%8B%E6%8B%89%E9%A1%B6%E9%83%A8%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/ios-%E5%AE%9E%E7%8E%B0%E5%88%97%E8%A1%A8%E4%B8%8B%E6%8B%89%E9%A1%B6%E9%83%A8%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7/</guid>
+      <description>实现思路 tableview 下拉中露出的tableview背景时，动态设置顶部的图片高度，使用图片盖住露出的tableview背景&#xA;demo地址&#xA;代码示例： import UIKit import RxSwift let ScreenW = UIScreen.main.bounds.size.width let statusBarH = UIApplication.shared.statusBarFrame.size.height class AccountHeaderView: UIView { var disposeBag = DisposeBag() lazy var panoView : UIImageView = { let imgView = UIImageView() imgView.image = UIImage(named: &amp;#34;avator&amp;#34;) imgView.contentMode = .scaleAspectFill imgView.clipsToBounds = true return imgView }() var bgImgFrame: CGRect // 展示其他信息 var infoView: UIView? lazy var backPanoView : UIView = { let view = UIView() return view }() override init(frame:CGRect) { self.</description>
+    </item>
+    <item>
+      <title>Swift 仿微信朋友圈实现图片点击放大查看</title>
+      <link>https://xingtianwuganqi.github.io/posts/swift-%E4%BB%BF%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7%E6%9F%A5%E7%9C%8B/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/swift-%E4%BB%BF%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7%E6%9F%A5%E7%9C%8B/</guid>
+      <description>实现思路 scrollView 具有放大缩小的功能，实现图片的放大与缩小的思路就是将imageView放在scrollView上，双击时调用scrollView的&#xA;@available(iOS 3.0, *) open func zoom(to rect: CGRect, animated: Bool) 来实现imageView的放大与缩小&#xA;Demo地址&#xA;效果图： 实现步骤 1.两个初始化方法 // 通过图片url数组初始化 init(urlArr: [String],number: Int) // 通过图片数组初始化 init(_ Images: [UIImage],number: Int) 在初始化方法中初始化backScrollView 和承载imageView的scrollView,并给imageView和scrollView添加点击手势&#xA;2.承载imageView的scrollView设置代理方法 extension ShowBigImgView : UIScrollViewDelegate { // 当scrollview 尝试进行缩放的时候 func viewForZooming(in scrollView: UIScrollView) -&amp;gt; UIView? { let offsetX = self.backScroll.contentOffset.x let tagValue = offsetX / ScreenW return self.backScroll.viewWithTag(Int(tagValue))?.viewWithTag(100 + Int(tagValue)) } // 当缩放完毕的时候调用 func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?</description>
+    </item>
+    <item>
+      <title>Swift 简单的圆形进度条</title>
+      <link>https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/</link>
+      <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/</guid>
+      <description>下载时的圆形进度条 示例图： 代码如下： import UIKit func degreesToRadians(x:CGFloat) -&amp;gt; CGFloat{ return CGFloat(double_t.pi) * (x) / 180.0 } let ProgressDownload = 1 class NewsYBDownLoadVIew: UIView { var _trackLayer:CAShapeLayer? var _progressLayer:CAShapeLayer? private var progress:CGFloat = 0 //中间叉的图片 private let cancelImg : UIImageView = { let image = UIImageView() image.image = UIImage(named: &amp;#34;news_yb_cancel_down&amp;#34;) return image }() // 在合适的位置设计setprogress 属性即可 var setprogress:CGFloat = 0{ willSet { changeProgress(progress: newValue) } } override func draw(_ rect: CGRect) { // Drawing code //创建一个track shape layer _trackLayer = CAShapeLayer() _trackLayer?</description>
+    </item>
+    <item>
+      <title>iOS 获取相册中的视频列表</title>
+      <link>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%86%8C%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</link>
+      <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%86%8C%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</guid>
+      <description>获取相册中的视频文件 func getAllvideo() { let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil) print(cameraRolls) guard cameraRolls.count &amp;gt; 0 else { return } for i in 0 ..&amp;lt; cameraRolls.count { let albumCollection = cameraRolls[i] // 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中 LOGGER.debug(albumCollection.localizedTitle) let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil) for i in 0 ..&amp;lt; albumAssets.count { let asset = albumAssets[i] let filetype = asset.mediaType if filetype == PHAssetMediaType.video { videoMessage(asset: asset,count: albumAssets.count) } continue } } } 获取视频信息 // 获取PHAsset 对象的信息 func videoMessage(asset: PHAsset , count: Int) { let options = PHVideoRequestOptions() options.</description>
+    </item>
+    <item>
+      <title>NSAttributedString 详解</title>
+      <link>https://xingtianwuganqi.github.io/posts/nsattributedstring-%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Wed, 29 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/nsattributedstring-%E8%AF%A6%E8%A7%A3/</guid>
+      <description>NSAttributedString 详解 主要的几个属性： @available(iOS 6.0, *) public static let font: NSAttributedStringKey // 字体，value是UIFont对象,默认：字体：Helvetica(Neue) 字号：12 @available(iOS 6.0, *) public static let paragraphStyle: NSAttributedStringKey // 绘图的风格（居中，换行模式，间距等诸多风格），value是NSParagraphStyle对象 @available(iOS 6.0, *) public static let foregroundColor: NSAttributedStringKey // 文字颜色，value是UIFont对象，默认值为黑色 @available(iOS 6.0, *) public static let backgroundColor: NSAttributedStringKey // 背景色，value是UIFont，默认值为nil, 透明色 @available(iOS 6.0, *) public static let ligature: NSAttributedStringKey // 字符连体，value是NSNumber，0 表示没有连体字符，1 表示使用默认的连体字符 @available(iOS 6.0, *) public static let kern: NSAttributedStringKey // 字符间隔，value是NSNumber，正值间距加宽，负值间距变窄 @available(iOS 6.0, *) public static let strikethroughStyle: NSAttributedStringKey // 删除线，value是NSNumber @available(iOS 6.</description>
+    </item>
+    <item>
+      <title>Swift 支持某个页面横竖屏切换与强制横屏</title>
+      <link>https://xingtianwuganqi.github.io/posts/swift-%E6%94%AF%E6%8C%81%E6%A8%AA%E7%AB%96%E5%B1%8F%E4%B8%8E%E5%BC%BA%E5%88%B6%E6%A8%AA%E5%B1%8F/</link>
+      <pubDate>Thu, 16 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/swift-%E6%94%AF%E6%8C%81%E6%A8%AA%E7%AB%96%E5%B1%8F%E4%B8%8E%E5%BC%BA%E5%88%B6%E6%A8%AA%E5%B1%8F/</guid>
+      <description>Demo地址&#xA;首先需要清晰几个概念&#xA;UIDeviceOrientation 设备的物理方向&#xA;UIDeviceOrientation即我们手持的移动设备的Orientation，是一个三围空间，有六个方向 public enum UIDeviceOrientation : Int { case unknown case portrait // Device oriented vertically, home button on the bottom case portraitUpsideDown // Device oriented vertically, home button on the top case landscapeLeft // Device oriented horizontally, home button on the right case landscapeRight // Device oriented horizontally, home button on the left case faceUp // Device oriented flat, face up case faceDown // Device oriented flat, face down } UIInterfaceOrientation 界面的显示方向 UIInterfaceOrientation即我们看到的视图的Orientation，可以理解为statusBar所在的方向，是一个二维空间，有四个方向 public enum UIInterfaceOrientation : Int { case unknown case portrait case portraitUpsideDown case landscapeLeft case landscapeRight } 支持某个页面横竖屏切换 项目要求是要某个界面能够横竖屏显示，其他界面要竖屏显示</description>
+    </item>
+    <item>
+      <title>iOS 获取String中的url并用其他颜色显示</title>
+      <link>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/</guid>
+      <description>这里用textView显示带url的String fileprivate let detailText&#x9;= UITextView().then { (textview)in textview.font = UIFont.systemFont(ofSize:14) textview.textColor = UIColor(hexString:&amp;#34;#333333&amp;#34;) textview.isEditable =false; //必须禁止输入，否则点击将弹出输入键盘 textview.isScrollEnabled =false; } 用这个方法获取url,获取url的数组 private func getUrls(str:String) -&amp;gt; [String] { varurls = [String]() // 创建一个正则表达式对象 do{ let dataDetector = try NSDataDetector(types:NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue)) // 匹配字符串，返回结果集 let res = dataDetector.matches(in: str,options:NSRegularExpression.MatchingOptions(rawValue:0),range:NSMakeRange(0, str.count)) // 取出结果 for checkingRes in res { urls.append((str as NSString).substring(with: checkingRes.range)) } } catch{ print(error) } returnurls } 获取url数组 let arr =self.getUrls(str: state.detail) let attrubuteStr = NSMutableAttributedString(string: state.</description>
+    </item>
+    <item>
+      <title>mac 蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法</title>
+      <link>https://xingtianwuganqi.github.io/posts/mac-%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E9%BC%A0%E6%A0%87%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%E4%B9%8B%E5%90%8E%E6%97%A0%E6%B3%95%E9%87%8D%E6%96%B0%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/mac-%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E9%BC%A0%E6%A0%87%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%E4%B9%8B%E5%90%8E%E6%97%A0%E6%B3%95%E9%87%8D%E6%96%B0%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>网上找的方法，记录一下 find ~/Library -name com.apple.Bluetooth.*.plist -exec rm{};&#xA;sudo rm /Library/Preferences/com.apple.Bluetooth.plist&#xA;重启之后重新配置一下蓝牙设备。</description>
     </item>
   </channel>
 </rss>

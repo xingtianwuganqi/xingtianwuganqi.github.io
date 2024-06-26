@@ -1,0 +1,338 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>iOS cell的复用问题及解决办法 - Ethan编程小站</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="UITableView中单元格复用有两种方法,dequeueReusableCell与dequeueReusableCell:indexPath.
+// 1 open func dequeueReusableCell(withIdentifier identifier: String) -&gt; UITableViewCell? // Used by the delegate to acquire an already allocated cell, in lieu of allocating a new one. // 2 @available(iOS 6.0, *) open func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -&gt; UITableViewCell // newer dequeue method guarantees a cell is returned and resized properly, assuming identifier is registered 这两个方法的区别 1.方法1返回的cell是一个含有这个重用标识符的无效cell,这个cell没有初始化，需要在下面判断cell是否是空，是空就初始化
+var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: &#34;CustomTableCell&#34;) if cell == nil { cell = UITableViewCell." />
+  <meta name="author" content="Ethan编程小站" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://xingtianwuganqi.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://xingtianwuganqi.github.io/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://xingtianwuganqi.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://xingtianwuganqi.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://xingtianwuganqi.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.122.0">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="iOS cell的复用问题及解决办法">
+<meta itemprop="description" content="UITableView中单元格复用有两种方法,dequeueReusableCell与dequeueReusableCell:indexPath.
+// 1 open func dequeueReusableCell(withIdentifier identifier: String) -&gt; UITableViewCell? // Used by the delegate to acquire an already allocated cell, in lieu of allocating a new one. // 2 @available(iOS 6.0, *) open func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -&gt; UITableViewCell // newer dequeue method guarantees a cell is returned and resized properly, assuming identifier is registered 这两个方法的区别 1.方法1返回的cell是一个含有这个重用标识符的无效cell,这个cell没有初始化，需要在下面判断cell是否是空，是空就初始化
+var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: &#34;CustomTableCell&#34;) if cell == nil { cell = UITableViewCell."><meta itemprop="datePublished" content="2020-04-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="132">
+<meta itemprop="keywords" content="iOS," />
+  
+  <meta property="og:title" content="iOS cell的复用问题及解决办法" />
+<meta property="og:description" content="UITableView中单元格复用有两种方法,dequeueReusableCell与dequeueReusableCell:indexPath.
+// 1 open func dequeueReusableCell(withIdentifier identifier: String) -&gt; UITableViewCell? // Used by the delegate to acquire an already allocated cell, in lieu of allocating a new one. // 2 @available(iOS 6.0, *) open func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -&gt; UITableViewCell // newer dequeue method guarantees a cell is returned and resized properly, assuming identifier is registered 这两个方法的区别 1.方法1返回的cell是一个含有这个重用标识符的无效cell,这个cell没有初始化，需要在下面判断cell是否是空，是空就初始化
+var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: &#34;CustomTableCell&#34;) if cell == nil { cell = UITableViewCell." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xingtianwuganqi.github.io/posts/ios-cell%E7%9A%84%E5%A4%8D%E7%94%A8%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-04-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-06T00:00:00+00:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="iOS cell的复用问题及解决办法"/>
+<meta name="twitter:description" content="UITableView中单元格复用有两种方法,dequeueReusableCell与dequeueReusableCell:indexPath.
+// 1 open func dequeueReusableCell(withIdentifier identifier: String) -&gt; UITableViewCell? // Used by the delegate to acquire an already allocated cell, in lieu of allocating a new one. // 2 @available(iOS 6.0, *) open func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -&gt; UITableViewCell // newer dequeue method guarantees a cell is returned and resized properly, assuming identifier is registered 这两个方法的区别 1.方法1返回的cell是一个含有这个重用标识符的无效cell,这个cell没有初始化，需要在下面判断cell是否是空，是空就初始化
+var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: &#34;CustomTableCell&#34;) if cell == nil { cell = UITableViewCell."/>
+
+  
+  
+  
+  <link rel="canonical" href="https://xingtianwuganqi.github.io/posts/ios-cell%E7%9A%84%E5%A4%8D%E7%94%A8%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://xingtianwuganqi.github.io/"
+      >Ethan编程小站</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">iOS cell的复用问题及解决办法</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Apr 6, 2020</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p>UITableView中单元格复用有两种方法,dequeueReusableCell与dequeueReusableCell:indexPath.</p>
+<pre tabindex="0"><code>// 1
+open func dequeueReusableCell(withIdentifier identifier: String) -&gt; UITableViewCell? // Used by the delegate to acquire an already allocated cell, in lieu of allocating a new one.
+// 2
+@available(iOS 6.0, *)
+open func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -&gt; UITableViewCell // newer dequeue method guarantees a cell is returned and resized properly, assuming identifier is registered
+</code></pre><!-- raw HTML omitted -->
+<h4 id="这两个方法的区别">这两个方法的区别</h4>
+<p>1.方法1返回的cell是一个含有这个重用标识符的无效cell,这个cell没有初始化，需要在下面判断cell是否是空，是空就初始化</p>
+<pre tabindex="0"><code>var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: &#34;CustomTableCell&#34;)
+if cell == nil {
+    cell = UITableViewCell.init(style: .default, reuseIdentifier: &#34;CustomTableCell&#34;)
+}
+</code></pre><p>2.方法2总是返回一个有效的cell，需要提前注册</p>
+<pre tabindex="0"><code>self.tableView.register(UINib.init(nibName: &#34;CustomTableCell&#34;, bundle:.main), forCellReuseIdentifier: &#34;CustomTableCell&#34;)
+
+let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: &#34;CustomTableCell&#34;, for: indexPath)
+</code></pre><h4 id="出现cell复用的问题时">出现cell复用的问题时：</h4>
+<p>1.可以给每个cell不同的标识符</p>
+<pre tabindex="0"><code>let identifier = &#34;\(indexPath.row).indentifier&#34;
+var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: indentifier
+if cell == nil {
+    cell = UITableViewCell.init(style: .default, reuseIdentifier: indentifier)
+}
+</code></pre><p>2.不设置重用标识符创建cell</p>
+<pre tabindex="0"><code>var cell:UITableViewCell? = tableView.cellForRow(at: indexPath)
+if cell == nil {
+    cell = UITableViewCell.init(style: .default, reuseIdentifier: indentifier)
+}
+</code></pre></section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://xingtianwuganqi.github.io/tags/ios"
+      >iOS</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"
+      ><span>创建私有cocoaPods库及遇到的问题</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://xingtianwuganqi.github.io/">Ethan编程小站</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,388 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>iOS 获取String中的url并用其他颜色显示 - Ethan编程小站</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="这里用textView显示带url的String fileprivate let detailText	= UITextView().then { (textview)in textview.font = UIFont.systemFont(ofSize:14) textview.textColor = UIColor(hexString:&#34;#333333&#34;) textview.isEditable =false; //必须禁止输入，否则点击将弹出输入键盘 textview.isScrollEnabled =false; } 用这个方法获取url,获取url的数组 private func getUrls(str:String) -&gt; [String] { varurls = [String]() // 创建一个正则表达式对象 do{ let dataDetector = try NSDataDetector(types:NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue)) // 匹配字符串，返回结果集 let res = dataDetector.matches(in: str,options:NSRegularExpression.MatchingOptions(rawValue:0),range:NSMakeRange(0, str.count)) // 取出结果 for checkingRes in res { urls.append((str as NSString).substring(with: checkingRes.range)) } } catch{ print(error) } returnurls } 获取url数组 let arr =self.getUrls(str: state.detail) let attrubuteStr = NSMutableAttributedString(string: state." />
+  <meta name="author" content="Ethan编程小站" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://xingtianwuganqi.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://xingtianwuganqi.github.io/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://xingtianwuganqi.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://xingtianwuganqi.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://xingtianwuganqi.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.122.0">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="iOS 获取String中的url并用其他颜色显示">
+<meta itemprop="description" content="这里用textView显示带url的String fileprivate let detailText	= UITextView().then { (textview)in textview.font = UIFont.systemFont(ofSize:14) textview.textColor = UIColor(hexString:&#34;#333333&#34;) textview.isEditable =false; //必须禁止输入，否则点击将弹出输入键盘 textview.isScrollEnabled =false; } 用这个方法获取url,获取url的数组 private func getUrls(str:String) -&gt; [String] { varurls = [String]() // 创建一个正则表达式对象 do{ let dataDetector = try NSDataDetector(types:NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue)) // 匹配字符串，返回结果集 let res = dataDetector.matches(in: str,options:NSRegularExpression.MatchingOptions(rawValue:0),range:NSMakeRange(0, str.count)) // 取出结果 for checkingRes in res { urls.append((str as NSString).substring(with: checkingRes.range)) } } catch{ print(error) } returnurls } 获取url数组 let arr =self.getUrls(str: state.detail) let attrubuteStr = NSMutableAttributedString(string: state."><meta itemprop="datePublished" content="2018-08-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-08-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="146">
+<meta itemprop="keywords" content="Swift,Objective-C," />
+  
+  <meta property="og:title" content="iOS 获取String中的url并用其他颜色显示" />
+<meta property="og:description" content="这里用textView显示带url的String fileprivate let detailText	= UITextView().then { (textview)in textview.font = UIFont.systemFont(ofSize:14) textview.textColor = UIColor(hexString:&#34;#333333&#34;) textview.isEditable =false; //必须禁止输入，否则点击将弹出输入键盘 textview.isScrollEnabled =false; } 用这个方法获取url,获取url的数组 private func getUrls(str:String) -&gt; [String] { varurls = [String]() // 创建一个正则表达式对象 do{ let dataDetector = try NSDataDetector(types:NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue)) // 匹配字符串，返回结果集 let res = dataDetector.matches(in: str,options:NSRegularExpression.MatchingOptions(rawValue:0),range:NSMakeRange(0, str.count)) // 取出结果 for checkingRes in res { urls.append((str as NSString).substring(with: checkingRes.range)) } } catch{ print(error) } returnurls } 获取url数组 let arr =self.getUrls(str: state.detail) let attrubuteStr = NSMutableAttributedString(string: state." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-08-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-08-09T00:00:00+00:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="iOS 获取String中的url并用其他颜色显示"/>
+<meta name="twitter:description" content="这里用textView显示带url的String fileprivate let detailText	= UITextView().then { (textview)in textview.font = UIFont.systemFont(ofSize:14) textview.textColor = UIColor(hexString:&#34;#333333&#34;) textview.isEditable =false; //必须禁止输入，否则点击将弹出输入键盘 textview.isScrollEnabled =false; } 用这个方法获取url,获取url的数组 private func getUrls(str:String) -&gt; [String] { varurls = [String]() // 创建一个正则表达式对象 do{ let dataDetector = try NSDataDetector(types:NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue)) // 匹配字符串，返回结果集 let res = dataDetector.matches(in: str,options:NSRegularExpression.MatchingOptions(rawValue:0),range:NSMakeRange(0, str.count)) // 取出结果 for checkingRes in res { urls.append((str as NSString).substring(with: checkingRes.range)) } } catch{ print(error) } returnurls } 获取url数组 let arr =self.getUrls(str: state.detail) let attrubuteStr = NSMutableAttributedString(string: state."/>
+
+  
+  
+  
+  <link rel="canonical" href="https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://xingtianwuganqi.github.io/"
+      >Ethan编程小站</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">iOS 获取String中的url并用其他颜色显示</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Aug 9, 2018</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h3 id="这里用textview显示带url的string">这里用textView显示带url的String</h3>
+<pre tabindex="0"><code>fileprivate let detailText	= UITextView().then { (textview)in
+
+    textview.font = UIFont.systemFont(ofSize:14)
+
+    textview.textColor = UIColor(hexString:&#34;#333333&#34;)
+
+    textview.isEditable =false;        //必须禁止输入，否则点击将弹出输入键盘
+
+    textview.isScrollEnabled =false;
+
+}
+</code></pre><!-- raw HTML omitted -->
+<h3 id="用这个方法获取url获取url的数组">用这个方法获取url,获取url的数组</h3>
+<pre tabindex="0"><code>private func getUrls(str:String) -&gt; [String] {
+
+        varurls = [String]()
+        
+        // 创建一个正则表达式对象
+        do{
+
+            let dataDetector = try NSDataDetector(types:NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue))
+
+            // 匹配字符串，返回结果集
+            let res = dataDetector.matches(in: str,options:NSRegularExpression.MatchingOptions(rawValue:0),range:NSMakeRange(0, str.count))
+                                                   
+            // 取出结果
+            for checkingRes in res {
+                urls.append((str as NSString).substring(with: checkingRes.range))
+
+            }
+        }
+
+        catch{
+            print(error)
+        }
+        returnurls
+    }
+</code></pre><h3 id="获取url数组">获取url数组</h3>
+<pre tabindex="0"><code>let arr =self.getUrls(str: state.detail)
+
+let attrubuteStr = NSMutableAttributedString(string: state.detail)
+
+if arr.count &gt;0{
+
+ 	for i in arr {
+
+       let nsString = NSString(string: state.detail)
+
+       let bigRange = nsString.range(of: state.detail)
+
+       let range = nsString.range(of: i)
+
+    	attrubuteStr.addAttribute(NSAttributedStringKey.font, value:  UIFont.systemFont(ofSize:14), range: bigRange)
+
+   		attrubuteStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(hexString:&#34;#286efa&#34;)!, range: range)
+
+    	attrubuteStr.addAttribute(NSAttributedStringKey.link, value: i, range: range)
+    }
+
+}else{
+
+  let nsString = NSString(string: state.detail)
+
+  let bigRange = nsString.range(of: state.detail)
+
+  attrubuteStr.addAttribute(NSAttributedStringKey.font, value:  UIFont.systemFont(ofSize:14), range: bigRange)
+
+}
+self.detailText.attributedText = attrubuteStr
+</code></pre><h3 id="最后实现textview的代理方法点击url触发事件">最后实现textView的代理方法，点击url触发事件</h3>
+<pre tabindex="0"><code>func textView(_textView:UITextView, shouldInteractWith URL:URL, in characterRange:NSRange, interaction:UITextItemInteraction) -&gt;Bool{
+    self.navigatorService?.navigatorSubject.onNext(NavigatorItem.WebPage(&#34;&#34;,&#34;\(URL)&#34;))
+    return false
+}
+</code></pre></section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://xingtianwuganqi.github.io/tags/swift"
+      >Swift</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://xingtianwuganqi.github.io/tags/objective-c"
+      >Objective-C</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://xingtianwuganqi.github.io/posts/swift-%E6%94%AF%E6%8C%81%E6%A8%AA%E7%AB%96%E5%B1%8F%E4%B8%8E%E5%BC%BA%E5%88%B6%E6%A8%AA%E5%B1%8F/"
+      ><span class="mr-1.5">←</span><span>Swift 支持某个页面横竖屏切换与强制横屏</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://xingtianwuganqi.github.io/posts/mac-%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E9%BC%A0%E6%A0%87%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%E4%B9%8B%E5%90%8E%E6%97%A0%E6%B3%95%E9%87%8D%E6%96%B0%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"
+      ><span>mac 蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://xingtianwuganqi.github.io/">Ethan编程小站</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

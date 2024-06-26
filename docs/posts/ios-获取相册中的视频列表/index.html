@@ -1,0 +1,594 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>iOS 获取相册中的视频列表 - Ethan编程小站</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="获取相册中的视频文件 func getAllvideo() { let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil) print(cameraRolls) guard cameraRolls.count &gt; 0 else { return } for i in 0 ..&lt; cameraRolls.count { let albumCollection = cameraRolls[i] // 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中 LOGGER.debug(albumCollection.localizedTitle) let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil) for i in 0 ..&lt; albumAssets.count { let asset = albumAssets[i] let filetype = asset.mediaType if filetype == PHAssetMediaType.video { videoMessage(asset: asset,count: albumAssets.count) } continue } } } 获取视频信息 // 获取PHAsset 对象的信息 func videoMessage(asset: PHAsset , count: Int) { let options = PHVideoRequestOptions() options." />
+  <meta name="author" content="Ethan编程小站" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://xingtianwuganqi.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://xingtianwuganqi.github.io/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://xingtianwuganqi.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://xingtianwuganqi.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://xingtianwuganqi.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.122.0">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="iOS 获取相册中的视频列表">
+<meta itemprop="description" content="获取相册中的视频文件 func getAllvideo() { let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil) print(cameraRolls) guard cameraRolls.count &gt; 0 else { return } for i in 0 ..&lt; cameraRolls.count { let albumCollection = cameraRolls[i] // 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中 LOGGER.debug(albumCollection.localizedTitle) let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil) for i in 0 ..&lt; albumAssets.count { let asset = albumAssets[i] let filetype = asset.mediaType if filetype == PHAssetMediaType.video { videoMessage(asset: asset,count: albumAssets.count) } continue } } } 获取视频信息 // 获取PHAsset 对象的信息 func videoMessage(asset: PHAsset , count: Int) { let options = PHVideoRequestOptions() options."><meta itemprop="datePublished" content="2019-08-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-08-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="892">
+<meta itemprop="keywords" content="Swift," />
+  
+  <meta property="og:title" content="iOS 获取相册中的视频列表" />
+<meta property="og:description" content="获取相册中的视频文件 func getAllvideo() { let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil) print(cameraRolls) guard cameraRolls.count &gt; 0 else { return } for i in 0 ..&lt; cameraRolls.count { let albumCollection = cameraRolls[i] // 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中 LOGGER.debug(albumCollection.localizedTitle) let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil) for i in 0 ..&lt; albumAssets.count { let asset = albumAssets[i] let filetype = asset.mediaType if filetype == PHAssetMediaType.video { videoMessage(asset: asset,count: albumAssets.count) } continue } } } 获取视频信息 // 获取PHAsset 对象的信息 func videoMessage(asset: PHAsset , count: Int) { let options = PHVideoRequestOptions() options." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%86%8C%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-08-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-07T00:00:00+00:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="iOS 获取相册中的视频列表"/>
+<meta name="twitter:description" content="获取相册中的视频文件 func getAllvideo() { let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil) print(cameraRolls) guard cameraRolls.count &gt; 0 else { return } for i in 0 ..&lt; cameraRolls.count { let albumCollection = cameraRolls[i] // 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中 LOGGER.debug(albumCollection.localizedTitle) let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil) for i in 0 ..&lt; albumAssets.count { let asset = albumAssets[i] let filetype = asset.mediaType if filetype == PHAssetMediaType.video { videoMessage(asset: asset,count: albumAssets.count) } continue } } } 获取视频信息 // 获取PHAsset 对象的信息 func videoMessage(asset: PHAsset , count: Int) { let options = PHVideoRequestOptions() options."/>
+
+  
+  
+  
+  <link rel="canonical" href="https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%86%8C%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://xingtianwuganqi.github.io/"
+      >Ethan编程小站</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">iOS 获取相册中的视频列表</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Aug 7, 2019</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h4 id="获取相册中的视频文件">获取相册中的视频文件</h4>
+<pre tabindex="0"><code>func getAllvideo() {
+
+        let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil)
+        print(cameraRolls)
+        guard cameraRolls.count &gt; 0 else {
+            return
+        }
+        for i in 0 ..&lt; cameraRolls.count {
+            let albumCollection = cameraRolls[i]
+            // 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中
+            LOGGER.debug(albumCollection.localizedTitle)
+            let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil)
+    
+            for i in 0 ..&lt; albumAssets.count  {
+                let asset = albumAssets[i]
+                let filetype = asset.mediaType
+                if filetype == PHAssetMediaType.video {
+                    videoMessage(asset: asset,count: albumAssets.count)
+                }
+                continue
+            }
+
+        }
+    }
+</code></pre><!-- raw HTML omitted -->
+<h4 id="获取视频信息">获取视频信息</h4>
+<pre tabindex="0"><code>// 获取PHAsset 对象的信息
+  func videoMessage(asset: PHAsset , count: Int) {
+        let options = PHVideoRequestOptions()
+        options.version = .current
+        options.deliveryMode = .automatic
+        options.isNetworkAccessAllowed = true  // 获取iCloud 中的视频
+        
+        var iconImage = UIImage()
+        
+        let option = PHImageRequestOptions()
+        option.resizeMode = PHImageRequestOptionsResizeMode.fast
+        // 获取视频对于的图片
+        PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 116, height: 78), contentMode: PHImageContentMode.default, options: option) { (image, info) in
+            if let img = image {
+                iconImage = img
+            }
+        }
+
+        PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { [weak self](asset, audioMix, info) in
+            
+            LOGGER.debug(asset)
+            LOGGER.debug(audioMix)
+            LOGGER.debug(info)
+            
+            guard let ass = asset else {
+                return
+            }
+            
+            guard let url = ass as? AVURLAsset else {
+                return
+            }
+            var size : Float = 0
+            do {
+                let si = try url.url.resourceValues(forKeys: [URLResourceKey.fileSizeKey])
+                size = Float(si.fileSize ?? 0) / (1024.0*1024.0)
+            }catch {
+                
+            }
+            // 计算时长
+            let time = ass.duration
+            let seconds = ceil(Float(time.value)/Float(time.timescale))
+            let minute = String(format: &#34;%ld&#34;, Int(floor(seconds / 60)))
+            let second = String(format: &#34;%.2ld&#34;, Int(seconds) % 60)
+            let times = &#34;\(minute):\(second)&#34;
+        
+            //获取拍摄时间
+            let date = ass.creationDate?.dateValue
+            let dataFormat = DateFormatter()
+            dataFormat.dateFormat = &#34;yyyy:MM:dd HH:mm:ss&#34;
+            let cDate = dataFormat.string(from: date ?? Date(timeIntervalSinceNow: 0))
+            
+            
+            let name = url.url.absoluteString.components(separatedBy: &#34;/&#34;).last?.components(separatedBy: &#34;.&#34;).first ?? &#34;&#34;
+            let format = url.url.absoluteString.components(separatedBy: &#34;/&#34;).last?.components(separatedBy: &#34;.&#34;).last ?? &#34;&#34;
+            
+            let videoinfo = videoInfo(image: iconImage, name: name, time: times, urlStr: url.url.absoluteString, length: times, selected: false, date: cDate, size: size, second: String(format: &#34;%.0f&#34;, seconds),format: format)
+            // 一定要在主线程中加入到数组，不然会出现崩溃
+            DispatchQueue.main.async {
+                self?.videoArr.append(videoinfo)
+                self?._mainTableView.reloadData()
+            }
+        }
+    }
+</code></pre><h1 id="在测试中上述方法可以获取相册视频的文件地址但是在部分手机上将文件地址转换成data上传到服务器时出错了">在测试中，上述方法可以获取相册视频的文件地址，但是在部分手机上，将文件地址转换成data上传到服务器时出错了</h1>
+<pre tabindex="0"><code>let data : Data
+        do {
+            data = try Data.init(contentsOf: URL.init(string: path))
+            manager?.put(data, key: key, token: token, complete: { [weak self](info, key, resp) in
+          
+                }, option: options)
+        }catch let error {
+            // 这里报错，打印出来是
+            /*
+          Error Domain=NSCocoaErrorDomain Code=257 &#34;The file “IMG_0288.MP4” couldn’t be\
+          opened because you don’t have permission to view it.&#34; UserInfo=
+          {NSFilePath=/var/mobile/Media/DCIM/100APPLE/IMG_0288.MP4, 
+          NSUnderlyingError=0x17d761b0 {Error Domain=NSPOSIXErrorDomain Code=1 
+          &#34;Operation not permitted&#34;}}
+
+            */
+            print(error)
+            LOGGER.debug(&#34;filepath 转 data 失败&#34;)
+            HUDUtilInstance.showHUD(message: &#34;获取视频失败&#34;)
+        }
+</code></pre><p>通过查资料<a href="https://io.upyun.com/2016/03/23/the-real-files-in-alasset-and-phasset/">https://io.upyun.com/2016/03/23/the-real-files-in-alasset-and-phasset/</a>
+代码调整为</p>
+<h4 id="获取相册中的视频文件-1">获取相册中的视频文件</h4>
+<pre tabindex="0"><code>func getAllvideo() {
+
+        let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil)
+        print(cameraRolls)
+        
+        guard cameraRolls.count &gt; 0 else {
+            return
+        }
+        
+        for i in 0 ..&lt; cameraRolls.count {
+            let albumCollection = cameraRolls[i]
+            // 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中
+            LOGGER.debug(albumCollection.localizedTitle)
+            let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil)
+                for i in 0 ..&lt; albumAssets.count  {
+                    let asset = albumAssets[i]
+                    let filetype = asset.mediaType
+    //                if filetype == PHAssetMediaType.video {
+    //                    videoMessage(asset: asset,count: albumAssets.count)
+    //                }
+                    if filetype == PHAssetMediaType.video {
+                            
+                        // 通过asset 获取视频
+                        let assetResources = PHAssetResource.assetResources(for: asset)
+                        var resources : PHAssetResource?
+                        for assetRes in assetResources {
+                            if #available(iOS 9.1, *) {
+                                if assetRes.type == PHAssetResourceType.video || assetRes.type ==  PHAssetResourceType.pairedVideo {
+                                    resources = assetRes
+                                }else{
+                                    print(&#34;失败&#34;)
+                                }
+                            } else {
+                                // Fallback on earlier versions
+                            }
+                        }
+                        
+                        var fileName = &#34;&#34;
+                        guard let resource = resources ,resource.originalFilename.count &gt; 0 else{
+                            continue
+                        }
+                        fileName = resource.originalFilename
+                        print(fileName)
+                        // 获取视频地址成功
+                        self.videoMessage(assetPH: asset, fileName: fileName,resource: resource)
+                        
+                        
+                }
+            }
+
+        }
+    }
+</code></pre><h4 id="获取信息">获取信息</h4>
+<pre tabindex="0"><code>// 获取PHAsset 对象的信息
+    func videoMessage(assetPH: PHAsset,fileName: String,resource: PHAssetResource) {
+        let options = PHVideoRequestOptions()
+        options.version = .current
+        options.deliveryMode = .automatic
+        options.isNetworkAccessAllowed = true
+        
+        var iconImage = UIImage()
+        
+        let option = PHImageRequestOptions()
+        option.resizeMode = PHImageRequestOptionsResizeMode.fast
+        
+        // 获取视频对于的图片
+        PHImageManager.default().requestImage(for: assetPH, targetSize: CGSize(width: 116, height: 78), contentMode: PHImageContentMode.default, options: option) { (image, info) in
+            if let img = image {
+                iconImage = img
+            }
+        }
+
+        PHImageManager.default().requestAVAsset(forVideo: assetPH, options: options) { [weak self](asset, audioMix, info) in
+            
+            LOGGER.debug(asset)
+            LOGGER.debug(audioMix)
+            LOGGER.debug(info)
+            
+            guard let ass = asset else {
+                return
+            }
+            
+            guard let url = ass as? AVURLAsset else {
+                return
+            }
+            var size : Float = 0
+            do {
+                let si = try url.url.resourceValues(forKeys: [URLResourceKey.fileSizeKey])
+                size = Float(si.fileSize ?? 0) / (1024.0*1024.0)
+            }catch {
+                
+            }
+            // 计算时长
+            let time = ass.duration
+            let seconds = ceil(Float(time.value)/Float(time.timescale))
+            let minute = String(format: &#34;%ld&#34;, Int(floor(seconds / 60)))
+            let second = String(format: &#34;%.2ld&#34;, Int(seconds) % 60)
+            let times = &#34;\(minute):\(second)&#34;
+        
+            //获取拍摄时间
+            let date = ass.creationDate?.dateValue
+            let dataFormat = DateFormatter()
+            dataFormat.dateFormat = &#34;yyyy:MM:dd HH:mm:ss&#34;
+            let cDate = dataFormat.string(from: date ?? Date(timeIntervalSinceNow: 0))
+            
+            
+//            let name = url.url.absoluteString.components(separatedBy: &#34;/&#34;).last?.components(separatedBy: &#34;.&#34;).first ?? &#34;&#34;
+//            let format = url.url.absoluteString.components(separatedBy: &#34;/&#34;).last?.components(separatedBy: &#34;.&#34;).last ?? &#34;&#34;
+            
+            let name = fileName.components(separatedBy: &#34;.&#34;).first ?? &#34;&#34;
+            let format = fileName.components(separatedBy: &#34;.&#34;).last ?? &#34;&#34;
+            
+            let videoinfo = videoInfo(image: iconImage, name: name, time: times, urlStr: nil, length: times, selected: false, date: cDate, size: size, second: String(format: &#34;%.0f&#34;, seconds),format: format)
+            
+            self?.getVideo(asset: assetPH, fileName: fileName, resource: resource, info: videoinfo)
+
+            
+//            DispatchQueue.main.async {
+//                self?.videoArr.append(videoinfo)
+//                self?._mainTableView.reloadData()
+//            }
+        }
+    }
+</code></pre><h4 id="将视频写入到本地从本地读取">将视频写入到本地，从本地读取</h4>
+<pre tabindex="0"><code>// 获取视频
+    func getVideo(asset: PHAsset,fileName: String,resource: PHAssetResource,info: videoInfo) {
+        if #available(iOS 9.1, *) {
+            if asset.mediaType == PHAssetMediaType.video || asset.mediaSubtypes == PHAssetMediaSubtype.photoLive {
+            
+                let pathMovieFile = NSTemporaryDirectory().appendingPathComponent(fileName)
+                try? FileManager.default.removeItem(atPath: pathMovieFile)
+                
+                PHAssetResourceManager.default().writeData(for: resource, toFile: URL.init(fileURLWithPath: pathMovieFile), options: nil) { [weak self](error) in
+                    guard error == nil else {
+                        return
+                    }
+//                    do {
+////                        let data = try Data.init(contentsOf: URL.init(fileURLWithPath: pathMovieFile))
+////                        print(&#34;转data成功&#34;)
+//                    }catch let error{
+//                        print(error)
+//                        print(&#34;转data失败&#34;)
+//                    }
+                    var video = info
+                    video.setUrl(url: pathMovieFile) // 获取到视频url后存入到视频信息中
+                    // 刷新列表， 一定要在主线程中加入到数组，不然会出现崩溃
+                    DispatchQueue.main.async {
+                        self?.videoArr.append(video)
+                        self?._mainTableView.reloadData()
+                    }
+
+                }
+                
+                
+            }else{
+
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+
+        // 转成data
+        let data : Data
+        do {
+            data = try Data.init(contentsOf: URL.init(fileURLWithPath: path))
+            
+        }catch let error {
+            print(error)
+            LOGGER.debug(&#34;filepath 转 data 失败&#34;)
+            HUDUtilInstance.showHUD(message: &#34;获取视频失败&#34;)
+        }
+</code></pre><h4 id="最后注意在适合的地方删除本地的缓存">最后注意在适合的地方删除本地的缓存</h4>
+</section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://xingtianwuganqi.github.io/tags/swift"
+      >Swift</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/"
+      ><span class="mr-1.5">←</span><span>Swift 简单的圆形进度条</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://xingtianwuganqi.github.io/posts/nsattributedstring-%E8%AF%A6%E8%A7%A3/"
+      ><span>NSAttributedString 详解</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://xingtianwuganqi.github.io/">Ethan编程小站</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

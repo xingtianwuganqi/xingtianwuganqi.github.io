@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iOS on Ethan编程小站</title>
+    <link>https://xingtianwuganqi.github.io/tags/ios/</link>
+    <description>Recent content in iOS on Ethan编程小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://xingtianwuganqi.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS cell的复用问题及解决办法</title>
+      <link>https://xingtianwuganqi.github.io/posts/ios-cell%E7%9A%84%E5%A4%8D%E7%94%A8%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://xingtianwuganqi.github.io/posts/ios-cell%E7%9A%84%E5%A4%8D%E7%94%A8%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>UITableView中单元格复用有两种方法,dequeueReusableCell与dequeueReusableCell:indexPath.&#xA;// 1 open func dequeueReusableCell(withIdentifier identifier: String) -&amp;gt; UITableViewCell? // Used by the delegate to acquire an already allocated cell, in lieu of allocating a new one. // 2 @available(iOS 6.0, *) open func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -&amp;gt; UITableViewCell // newer dequeue method guarantees a cell is returned and resized properly, assuming identifier is registered 这两个方法的区别 1.方法1返回的cell是一个含有这个重用标识符的无效cell,这个cell没有初始化，需要在下面判断cell是否是空，是空就初始化&#xA;var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: &amp;#34;CustomTableCell&amp;#34;) if cell == nil { cell = UITableViewCell.</description>
+    </item>
+  </channel>
+</rss>

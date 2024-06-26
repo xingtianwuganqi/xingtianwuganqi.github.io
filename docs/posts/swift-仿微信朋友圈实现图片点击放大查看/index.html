@@ -1,0 +1,484 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Swift 仿微信朋友圈实现图片点击放大查看 - Ethan编程小站</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="实现思路 scrollView 具有放大缩小的功能，实现图片的放大与缩小的思路就是将imageView放在scrollView上，双击时调用scrollView的
+@available(iOS 3.0, *) open func zoom(to rect: CGRect, animated: Bool) 来实现imageView的放大与缩小
+Demo地址
+效果图： 实现步骤 1.两个初始化方法 // 通过图片url数组初始化 init(urlArr: [String],number: Int) // 通过图片数组初始化 init(_ Images: [UIImage],number: Int) 在初始化方法中初始化backScrollView 和承载imageView的scrollView,并给imageView和scrollView添加点击手势
+2.承载imageView的scrollView设置代理方法 extension ShowBigImgView : UIScrollViewDelegate { // 当scrollview 尝试进行缩放的时候 func viewForZooming(in scrollView: UIScrollView) -&gt; UIView? { let offsetX = self.backScroll.contentOffset.x let tagValue = offsetX / ScreenW return self.backScroll.viewWithTag(Int(tagValue))?.viewWithTag(100 &#43; Int(tagValue)) } // 当缩放完毕的时候调用 func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?" />
+  <meta name="author" content="Ethan编程小站" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://xingtianwuganqi.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://xingtianwuganqi.github.io/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://xingtianwuganqi.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://xingtianwuganqi.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://xingtianwuganqi.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.122.0">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="Swift 仿微信朋友圈实现图片点击放大查看">
+<meta itemprop="description" content="实现思路 scrollView 具有放大缩小的功能，实现图片的放大与缩小的思路就是将imageView放在scrollView上，双击时调用scrollView的
+@available(iOS 3.0, *) open func zoom(to rect: CGRect, animated: Bool) 来实现imageView的放大与缩小
+Demo地址
+效果图： 实现步骤 1.两个初始化方法 // 通过图片url数组初始化 init(urlArr: [String],number: Int) // 通过图片数组初始化 init(_ Images: [UIImage],number: Int) 在初始化方法中初始化backScrollView 和承载imageView的scrollView,并给imageView和scrollView添加点击手势
+2.承载imageView的scrollView设置代理方法 extension ShowBigImgView : UIScrollViewDelegate { // 当scrollview 尝试进行缩放的时候 func viewForZooming(in scrollView: UIScrollView) -&gt; UIView? { let offsetX = self.backScroll.contentOffset.x let tagValue = offsetX / ScreenW return self.backScroll.viewWithTag(Int(tagValue))?.viewWithTag(100 &#43; Int(tagValue)) } // 当缩放完毕的时候调用 func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?"><meta itemprop="datePublished" content="2019-12-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="458">
+<meta itemprop="keywords" content="Swift," />
+  
+  <meta property="og:title" content="Swift 仿微信朋友圈实现图片点击放大查看" />
+<meta property="og:description" content="实现思路 scrollView 具有放大缩小的功能，实现图片的放大与缩小的思路就是将imageView放在scrollView上，双击时调用scrollView的
+@available(iOS 3.0, *) open func zoom(to rect: CGRect, animated: Bool) 来实现imageView的放大与缩小
+Demo地址
+效果图： 实现步骤 1.两个初始化方法 // 通过图片url数组初始化 init(urlArr: [String],number: Int) // 通过图片数组初始化 init(_ Images: [UIImage],number: Int) 在初始化方法中初始化backScrollView 和承载imageView的scrollView,并给imageView和scrollView添加点击手势
+2.承载imageView的scrollView设置代理方法 extension ShowBigImgView : UIScrollViewDelegate { // 当scrollview 尝试进行缩放的时候 func viewForZooming(in scrollView: UIScrollView) -&gt; UIView? { let offsetX = self.backScroll.contentOffset.x let tagValue = offsetX / ScreenW return self.backScroll.viewWithTag(Int(tagValue))?.viewWithTag(100 &#43; Int(tagValue)) } // 当缩放完毕的时候调用 func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xingtianwuganqi.github.io/posts/swift-%E4%BB%BF%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7%E6%9F%A5%E7%9C%8B/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-12-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-09T00:00:00+00:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Swift 仿微信朋友圈实现图片点击放大查看"/>
+<meta name="twitter:description" content="实现思路 scrollView 具有放大缩小的功能，实现图片的放大与缩小的思路就是将imageView放在scrollView上，双击时调用scrollView的
+@available(iOS 3.0, *) open func zoom(to rect: CGRect, animated: Bool) 来实现imageView的放大与缩小
+Demo地址
+效果图： 实现步骤 1.两个初始化方法 // 通过图片url数组初始化 init(urlArr: [String],number: Int) // 通过图片数组初始化 init(_ Images: [UIImage],number: Int) 在初始化方法中初始化backScrollView 和承载imageView的scrollView,并给imageView和scrollView添加点击手势
+2.承载imageView的scrollView设置代理方法 extension ShowBigImgView : UIScrollViewDelegate { // 当scrollview 尝试进行缩放的时候 func viewForZooming(in scrollView: UIScrollView) -&gt; UIView? { let offsetX = self.backScroll.contentOffset.x let tagValue = offsetX / ScreenW return self.backScroll.viewWithTag(Int(tagValue))?.viewWithTag(100 &#43; Int(tagValue)) } // 当缩放完毕的时候调用 func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?"/>
+
+  
+  
+  
+  <link rel="canonical" href="https://xingtianwuganqi.github.io/posts/swift-%E4%BB%BF%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7%E6%9F%A5%E7%9C%8B/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://xingtianwuganqi.github.io/"
+      >Ethan编程小站</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Swift 仿微信朋友圈实现图片点击放大查看</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Dec 9, 2019</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h2 id="实现思路">实现思路</h2>
+<p>scrollView 具有放大缩小的功能，实现图片的放大与缩小的思路就是将imageView放在scrollView上，双击时调用scrollView的</p>
+<pre tabindex="0"><code>@available(iOS 3.0, *)
+    open func zoom(to rect: CGRect, animated: Bool)
+</code></pre><p>来实现imageView的放大与缩小</p>
+<p><a href="https://github.com/xingtianwuganqi/ShowImageDemo">Demo地址</a></p>
+<!-- raw HTML omitted -->
+<h3 id="效果图">效果图：</h3>
+<p><img src="https://upload-images.jianshu.io/upload_images/8042403-acaea825a5c4854c.gif?imageMogr2/auto-orient/strip" alt="RPReplay.gif"></p>
+<h3 id="实现步骤">实现步骤</h3>
+<h4 id="1两个初始化方法">1.两个初始化方法</h4>
+<pre tabindex="0"><code>
+// 通过图片url数组初始化
+init(urlArr: [String],number: Int)
+
+// 通过图片数组初始化
+init(_ Images: [UIImage],number: Int)
+</code></pre><p>在初始化方法中初始化backScrollView 和承载imageView的scrollView,并给imageView和scrollView添加点击手势</p>
+<h4 id="2承载imageview的scrollview设置代理方法">2.承载imageView的scrollView设置代理方法</h4>
+<pre tabindex="0"><code>extension ShowBigImgView : UIScrollViewDelegate {
+    // 当scrollview 尝试进行缩放的时候
+    func viewForZooming(in scrollView: UIScrollView) -&gt; UIView? {
+        let offsetX = self.backScroll.contentOffset.x
+        let tagValue = offsetX / ScreenW
+        return self.backScroll.viewWithTag(Int(tagValue))?.viewWithTag(100 + Int(tagValue))
+    }
+    
+    // 当缩放完毕的时候调用
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        printLog(message: &#34;缩放结束-\(scale)&#34;)
+    }
+    
+    // 当正在缩放的时候
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        printLog(message: &#34;正在缩放&#34;)
+        
+        let offsetX = self.backScroll.contentOffset.x
+        let tagValue = offsetX / ScreenW
+        
+        //获取到这个scrollview
+        var centerX = self.backScroll.center.x
+        var centerY = self.backScroll.center.y
+        
+        centerX = scrollView.contentSize.width &gt; scrollView.frame.size.width ?
+            scrollView.contentSize.width/2:centerX
+        centerY = scrollView.contentSize.height &gt; scrollView.frame.size.height ?
+            scrollView.contentSize.height/2:centerY
+        scrollView.viewWithTag(100 + Int(tagValue))?.center = CGPoint(x: centerX, y: centerY)
+    }
+}
+</code></pre><h4 id="3图片的点击放大手势">3.图片的点击放大手势</h4>
+<pre tabindex="0"><code>    @objc func imageClick(tap:UITapGestureRecognizer) {
+        
+        var newscale : CGFloat = 0
+        
+        guard let scroll = tap.view?.superview as? UIScrollView else {
+            return
+        }
+        
+        if scroll.zoomScale == 1.0 {
+            newscale = 3
+        }else {
+            newscale = 1.0
+        }
+        
+        let zoomRect = self.zoomRectForScale(scrollview: scroll,scale: newscale, center: tap.location(in: tap.view))
+        
+        scroll.zoom(to: zoomRect, animated: true)
+    }
+// 计算放大或缩小的frame
+    func zoomRectForScale(scrollview: UIScrollView, scale: CGFloat,center: CGPoint) -&gt; CGRect {
+        var zoomRect: CGRect = CGRect()
+        zoomRect.size.height = scrollview.frame.size.height / scale
+        zoomRect.size.width = scrollview.frame.size.width / scale
+        zoomRect.origin.x = center.x - (zoomRect.size.width / 2.0)
+        zoomRect.origin.y = center.y - (zoomRect.size.height / 2.0)
+        return zoomRect
+    }
+</code></pre><h4 id="4出现时的动画">4.出现时的动画</h4>
+<pre tabindex="0"><code>    func pushAnimation(num: Int) {
+        // 获取UIImageView()
+        guard let imageView = self.backScroll.viewWithTag(100 + num) as?  UIImageView else {
+            return
+        }
+        transformAnimation(animationView: imageView)
+    }
+// 缩放动画
+    func transformAnimation(animationView: UIImageView) {
+        let animation: CABasicAnimation = CABasicAnimation()
+        animation.keyPath = &#34;transform.scale&#34;
+        animation.fromValue = 0.2 // 原始系数
+        animation.toValue = 1 // 缩放系数
+        animation.duration = 0.3
+        animation.isRemovedOnCompletion = true
+        animation.fillMode = kCAFillModeRemoved
+        animationView.layer.add(animation, forKey: nil)
+    }
+</code></pre><h4 id="5消失时的动画">5.消失时的动画</h4>
+<pre tabindex="0"><code>    @objc func backBtnClick() {
+        self.removeAnimation()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.removeFromSuperview()
+        }
+    }
+
+// 缩放 + 淡入淡出
+    func removeAnimation() {
+        
+        let x = Int(self.backScroll.contentOffset.x)
+        let y = Int(ScreenW)
+        guard (x % y) == 0 else{
+            return
+        }
+        // 获取
+        let tag = x / y + 100
+        guard let imageView = self.backScroll.viewWithTag(tag) else {
+            return
+        }        
+        let scale = CABasicAnimation()
+        scale.keyPath = &#34;transform.scale&#34;
+        scale.fromValue = 1.0
+        scale.toValue = 0.2
+        scale.duration = 0.3
+        scale.fillMode = kCAFillModeForwards
+        scale.isRemovedOnCompletion = false
+        imageView.layer.add(scale, forKey: nil)
+
+        let backAnimation = CAKeyframeAnimation()
+        backAnimation.keyPath = &#34;opacity&#34;
+        backAnimation.duration = 0.4
+        backAnimation.values = [
+            NSNumber(value: 0.90 as Float),
+            NSNumber(value: 0.60 as Float),
+            NSNumber(value: 0.30 as Float),
+            NSNumber(value: 0.0 as Float),
+        ]
+        backAnimation.keyTimes = [
+            NSNumber(value: 0.1),
+            NSNumber(value: 0.2),
+            NSNumber(value: 0.3),
+            NSNumber(value: 0.4)
+        ]
+        backAnimation.fillMode = kCAFillModeForwards
+        backAnimation.isRemovedOnCompletion = false
+        self.layer.add(backAnimation, forKey: nil)
+    }
+</code></pre><h4 id="6调用">6.调用</h4>
+<pre tabindex="0"><code>  func showImg (imgs: [String],url: String) {
+        var number = 0
+        //获取当前图片的下标
+        _ = imgs.enumerated().map { (index,urlStr) in
+            if urlStr == url {
+                number = index
+            }
+        }
+        let show = ShowBigImgView(urlArr: imgs,number: number)
+        UIApplication.shared.keyWindow?.addSubview(show)
+        // 缩放动画
+        show.pushAnimation(num: number)
+    }
+</code></pre><p><a href="https://github.com/xingtianwuganqi/ShowImageDemo">Demo地址</a></p>
+</section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://xingtianwuganqi.github.io/tags/swift"
+      >Swift</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://xingtianwuganqi.github.io/posts/ios-%E5%AE%9E%E7%8E%B0%E5%88%97%E8%A1%A8%E4%B8%8B%E6%8B%89%E9%A1%B6%E9%83%A8%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7/"
+      ><span class="mr-1.5">←</span><span>iOS 实现列表下拉顶部图片放大</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/"
+      ><span>Swift 简单的圆形进度条</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://xingtianwuganqi.github.io/">Ethan编程小站</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

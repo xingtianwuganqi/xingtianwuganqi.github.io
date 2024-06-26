@@ -1,0 +1,395 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>NSAttributedString 详解 - Ethan编程小站</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="NSAttributedString 详解 主要的几个属性： @available(iOS 6.0, *) public static let font: NSAttributedStringKey // 字体，value是UIFont对象,默认：字体：Helvetica(Neue) 字号：12 @available(iOS 6.0, *) public static let paragraphStyle: NSAttributedStringKey // 绘图的风格（居中，换行模式，间距等诸多风格），value是NSParagraphStyle对象 @available(iOS 6.0, *) public static let foregroundColor: NSAttributedStringKey // 文字颜色，value是UIFont对象，默认值为黑色 @available(iOS 6.0, *) public static let backgroundColor: NSAttributedStringKey // 背景色，value是UIFont，默认值为nil, 透明色 @available(iOS 6.0, *) public static let ligature: NSAttributedStringKey // 字符连体，value是NSNumber，0 表示没有连体字符，1 表示使用默认的连体字符 @available(iOS 6.0, *) public static let kern: NSAttributedStringKey // 字符间隔，value是NSNumber，正值间距加宽，负值间距变窄 @available(iOS 6.0, *) public static let strikethroughStyle: NSAttributedStringKey // 删除线，value是NSNumber @available(iOS 6." />
+  <meta name="author" content="Ethan编程小站" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://xingtianwuganqi.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://xingtianwuganqi.github.io/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://xingtianwuganqi.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://xingtianwuganqi.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://xingtianwuganqi.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.122.0">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="NSAttributedString 详解">
+<meta itemprop="description" content="NSAttributedString 详解 主要的几个属性： @available(iOS 6.0, *) public static let font: NSAttributedStringKey // 字体，value是UIFont对象,默认：字体：Helvetica(Neue) 字号：12 @available(iOS 6.0, *) public static let paragraphStyle: NSAttributedStringKey // 绘图的风格（居中，换行模式，间距等诸多风格），value是NSParagraphStyle对象 @available(iOS 6.0, *) public static let foregroundColor: NSAttributedStringKey // 文字颜色，value是UIFont对象，默认值为黑色 @available(iOS 6.0, *) public static let backgroundColor: NSAttributedStringKey // 背景色，value是UIFont，默认值为nil, 透明色 @available(iOS 6.0, *) public static let ligature: NSAttributedStringKey // 字符连体，value是NSNumber，0 表示没有连体字符，1 表示使用默认的连体字符 @available(iOS 6.0, *) public static let kern: NSAttributedStringKey // 字符间隔，value是NSNumber，正值间距加宽，负值间距变窄 @available(iOS 6.0, *) public static let strikethroughStyle: NSAttributedStringKey // 删除线，value是NSNumber @available(iOS 6."><meta itemprop="datePublished" content="2018-08-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-08-29T00:00:00+00:00" />
+<meta itemprop="wordCount" content="256">
+<meta itemprop="keywords" content="Swift," />
+  
+  <meta property="og:title" content="NSAttributedString 详解" />
+<meta property="og:description" content="NSAttributedString 详解 主要的几个属性： @available(iOS 6.0, *) public static let font: NSAttributedStringKey // 字体，value是UIFont对象,默认：字体：Helvetica(Neue) 字号：12 @available(iOS 6.0, *) public static let paragraphStyle: NSAttributedStringKey // 绘图的风格（居中，换行模式，间距等诸多风格），value是NSParagraphStyle对象 @available(iOS 6.0, *) public static let foregroundColor: NSAttributedStringKey // 文字颜色，value是UIFont对象，默认值为黑色 @available(iOS 6.0, *) public static let backgroundColor: NSAttributedStringKey // 背景色，value是UIFont，默认值为nil, 透明色 @available(iOS 6.0, *) public static let ligature: NSAttributedStringKey // 字符连体，value是NSNumber，0 表示没有连体字符，1 表示使用默认的连体字符 @available(iOS 6.0, *) public static let kern: NSAttributedStringKey // 字符间隔，value是NSNumber，正值间距加宽，负值间距变窄 @available(iOS 6.0, *) public static let strikethroughStyle: NSAttributedStringKey // 删除线，value是NSNumber @available(iOS 6." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xingtianwuganqi.github.io/posts/nsattributedstring-%E8%AF%A6%E8%A7%A3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-08-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-08-29T00:00:00+00:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="NSAttributedString 详解"/>
+<meta name="twitter:description" content="NSAttributedString 详解 主要的几个属性： @available(iOS 6.0, *) public static let font: NSAttributedStringKey // 字体，value是UIFont对象,默认：字体：Helvetica(Neue) 字号：12 @available(iOS 6.0, *) public static let paragraphStyle: NSAttributedStringKey // 绘图的风格（居中，换行模式，间距等诸多风格），value是NSParagraphStyle对象 @available(iOS 6.0, *) public static let foregroundColor: NSAttributedStringKey // 文字颜色，value是UIFont对象，默认值为黑色 @available(iOS 6.0, *) public static let backgroundColor: NSAttributedStringKey // 背景色，value是UIFont，默认值为nil, 透明色 @available(iOS 6.0, *) public static let ligature: NSAttributedStringKey // 字符连体，value是NSNumber，0 表示没有连体字符，1 表示使用默认的连体字符 @available(iOS 6.0, *) public static let kern: NSAttributedStringKey // 字符间隔，value是NSNumber，正值间距加宽，负值间距变窄 @available(iOS 6.0, *) public static let strikethroughStyle: NSAttributedStringKey // 删除线，value是NSNumber @available(iOS 6."/>
+
+  
+  
+  
+  <link rel="canonical" href="https://xingtianwuganqi.github.io/posts/nsattributedstring-%E8%AF%A6%E8%A7%A3/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://xingtianwuganqi.github.io/"
+      >Ethan编程小站</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">NSAttributedString 详解</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Aug 29, 2018</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h1 id="nsattributedstring-详解">NSAttributedString 详解</h1>
+<ul>
+<li>主要的几个属性：</li>
+</ul>
+<pre tabindex="0"><code>@available(iOS 6.0, *)
+public static let font: NSAttributedStringKey // 字体，value是UIFont对象,默认：字体：Helvetica(Neue) 字号：12
+
+@available(iOS 6.0, *)
+public static let paragraphStyle: NSAttributedStringKey // 绘图的风格（居中，换行模式，间距等诸多风格），value是NSParagraphStyle对象
+
+@available(iOS 6.0, *)
+public static let foregroundColor: NSAttributedStringKey // 文字颜色，value是UIFont对象，默认值为黑色
+
+@available(iOS 6.0, *)
+public static let backgroundColor: NSAttributedStringKey // 背景色，value是UIFont，默认值为nil, 透明色
+
+@available(iOS 6.0, *)
+public static let ligature: NSAttributedStringKey // 字符连体，value是NSNumber，0 表示没有连体字符，1 表示使用默认的连体字符
+
+@available(iOS 6.0, *)
+public static let kern: NSAttributedStringKey // 字符间隔，value是NSNumber，正值间距加宽，负值间距变窄
+
+@available(iOS 6.0, *)
+public static let strikethroughStyle: NSAttributedStringKey // 删除线，value是NSNumber
+
+@available(iOS 6.0, *)
+public static let underlineStyle: NSAttributedStringKey // 下划线，value是NSNumber
+
+@available(iOS 6.0, *)
+public static let strokeColor: NSAttributedStringKey // 描绘边颜色，value是UIColor,默认值为nil，设置的属性同ForegroundColor
+
+@available(iOS 6.0, *)
+public static let strokeWidth: NSAttributedStringKey // 描边宽度，value是NSNumber，负值填充效果，正值中空效果
+
+@available(iOS 6.0, *)
+public static let shadow: NSAttributedStringKey // 阴影，value是NSShadow对象，默认值为nil
+
+@available(iOS 7.0, *)
+public static let textEffect: NSAttributedStringKey // 文字效果，value是NSString，目前只有图版印刷效果可用, 使用此属性指定的文字效果，如NSTextEffectLetterpressStyle。此属性的默认值为nil，表示没有文本效应
+
+@available(iOS 7.0, *)
+public static let attachment: NSAttributedStringKey // 附属，value是NSTextAttachment 对象,常用于文字图片混排
+
+@available(iOS 7.0, *)
+public static let link: NSAttributedStringKey // 链接，value是NSURL or NSString
+
+@available(iOS 7.0, *)
+public static let baselineOffset: NSAttributedStringKey // 基础偏移量，value是NSNumber对象，正值上偏，负值下偏, 默认值是0
+
+@available(iOS 7.0, *)
+public static let underlineColor: NSAttributedStringKey // 下划线颜色，value是UIColor对象,默认值为nil
+
+@available(iOS 7.0, *)
+public static let strikethroughColor: NSAttributedStringKey // 删除线颜色，value是UIColor，默认值为黑色
+
+@available(iOS 7.0, *)
+public static let obliqueness: NSAttributedStringKey // 字体倾斜，取值为 NSNumber （float）,正值右倾，负值左倾, 默认值是0(表示没有倾斜)
+
+@available(iOS 7.0, *)
+public static let expansion: NSAttributedStringKey //字体扁平化，取值为 NSNumber （float）,正值横向拉伸文本，负值横向压缩文本
+
+@available(iOS 7.0, *)
+public static let writingDirection: NSAttributedStringKey //设置文字书写方向，从左向右书写或者从右向左书写
+
+@available(iOS 6.0, *)
+public static let verticalGlyphForm: NSAttributedStringKey //垂直或者水平，value是 NSNumber，0 表示横排文本，1 表示竖排文本 在iOS中, 总是以横向排版		
+	
+</code></pre><!-- raw HTML omitted -->
+<ul>
+<li>
+<p>NSParagraphStyle与NSMutableParagraphStyle包括以下属性</p>
+<ul>
+<li>alignment -&gt;对齐方式</li>
+<li>firstLineHeadIndent -&gt;首行缩进</li>
+<li>headIndent -&gt;缩进</li>
+<li>tailIndent -&gt;尾部缩进</li>
+<li>lineBreakMode -&gt;断行方式</li>
+<li>maximumLineHeight -&gt;最大行高</li>
+<li>minimumLineHeight -&gt;最低行高</li>
+<li>lineSpacing -&gt;行距</li>
+<li>paragraphSpacing -&gt;段距</li>
+<li>paragraphSpacingBefore -&gt;段首空间</li>
+<li>baseWritingDirection -&gt;句子方向</li>
+<li>lineHeightMultiple -&gt;可变行高,乘因数。</li>
+<li>hyphenationFactor -&gt;连字符属性</li>
+</ul>
+</li>
+</ul>
+</section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://xingtianwuganqi.github.io/tags/swift"
+      >Swift</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%86%8C%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/"
+      ><span class="mr-1.5">←</span><span>iOS 获取相册中的视频列表</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://xingtianwuganqi.github.io/posts/swift-%E6%94%AF%E6%8C%81%E6%A8%AA%E7%AB%96%E5%B1%8F%E4%B8%8E%E5%BC%BA%E5%88%B6%E6%A8%AA%E5%B1%8F/"
+      ><span>Swift 支持某个页面横竖屏切换与强制横屏</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://xingtianwuganqi.github.io/">Ethan编程小站</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

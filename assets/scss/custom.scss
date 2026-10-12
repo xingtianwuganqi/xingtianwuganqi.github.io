@@ -55,6 +55,20 @@
     }
 }
 .article-content a { overflow-wrap: anywhere; }
+.site-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-block: 12px;
+    color: var(--body-text-color);
+    font-size: 1.4rem;
+    span[id^="busuanzi_value_"] {
+        font-variant-numeric: tabular-nums;
+        color: var(--accent-color);
+        font-weight: 600;
+    }
+}
+.article-time { flex-wrap: wrap; }
 @media (prefers-reduced-motion: reduce) {
     .article-list > article { transition: none; }
     .article-list > article:hover { transform: none; }

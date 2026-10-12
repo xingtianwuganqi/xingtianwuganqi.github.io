@@ -4,7 +4,7 @@ defaultContentLanguage = 'zh-cn'
 hasCJKLanguage = true
 title = 'JunJing.dev'
 theme = 'stack'
-copyright = 'Ethan'
+copyright = 'JunJing.dev'
 publishDir = 'docs'
 
 [pagination]
@@ -14,8 +14,12 @@ pagerSize = 6
 page = '/:slug/'
 
 [params]
+favicon = '/img/avatar.svg'
 mainSections = ['posts']
 rssFullContent = true
+
+[params.analytics.busuanzi]
+enabled = true
 
 [params.sidebar]
 subtitle = '记录 iOS 与 Swift 开发中的实践、思考和灵感。'

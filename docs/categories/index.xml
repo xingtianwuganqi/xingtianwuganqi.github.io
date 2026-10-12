@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Categories on Ethan编程小站</title>
-    <link>https://xingtianwuganqi.github.io/categories/</link>
-    <description>Recent content in Categories on Ethan编程小站</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="https://xingtianwuganqi.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on JunJing.dev</title><link>https://xingtianwuganqi.github.io/categories/</link><description>Recent content in Categories on JunJing.dev</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Ethan</copyright><lastBuildDate>Mon, 12 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://xingtianwuganqi.github.io/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>我的作品</title><link>https://xingtianwuganqi.github.io/categories/%E6%88%91%E7%9A%84%E4%BD%9C%E5%93%81/</link><pubDate>Mon, 12 Oct 2026 00:00:00 +0800</pubDate><guid>https://xingtianwuganqi.github.io/categories/%E6%88%91%E7%9A%84%E4%BD%9C%E5%93%81/</guid><description/></item><item><title>随笔</title><link>https://xingtianwuganqi.github.io/categories/%E9%9A%8F%E7%AC%94/</link><pubDate>Wed, 26 Jun 2024 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/categories/%E9%9A%8F%E7%AC%94/</guid><description/></item><item><title>IOS笔记</title><link>https://xingtianwuganqi.github.io/categories/ios%E7%AC%94%E8%AE%B0/</link><pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/categories/ios%E7%AC%94%E8%AE%B0/</guid><description/></item></channel></rss>

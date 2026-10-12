@@ -1,4 +1,105 @@
 baseURL = 'https://xingtianwuganqi.github.io/'
-languageCode = 'en-us'
-title = 'Ethan编程小站'
-theme = "paper"
+languageCode = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
+hasCJKLanguage = true
+title = 'JunJing.dev'
+theme = 'stack'
+copyright = 'Ethan'
+publishDir = 'docs'
+
+[pagination]
+pagerSize = 6
+
+[permalinks]
+page = '/:slug/'
+
+[params]
+mainSections = ['posts']
+rssFullContent = true
+
+[params.sidebar]
+subtitle = '记录 iOS 与 Swift 开发中的实践、思考和灵感。'
+
+[params.sidebar.avatar]
+enabled = true
+local = false
+src = '/img/avatar.svg'
+
+[params.footer]
+since = 2018
+
+[params.dateFormat]
+published = '2006年01月02日'
+lastUpdated = '2006年01月02日 15:04'
+
+[params.article]
+toc = true
+readingTime = true
+
+[params.article.license]
+enabled = false
+
+[params.comments]
+enabled = false
+
+[params.colorScheme]
+toggle = true
+default = 'auto'
+
+[[params.widgets.homepage]]
+type = 'search'
+
+[[params.widgets.homepage]]
+type = 'archives'
+[params.widgets.homepage.params]
+limit = 5
+
+[[params.widgets.homepage]]
+type = 'categories'
+[params.widgets.homepage.params]
+limit = 10
+
+[[params.widgets.homepage]]
+type = 'tag-cloud'
+[params.widgets.homepage.params]
+limit = 10
+
+[[params.widgets.page]]
+type = 'toc'
+
+[[menu.main]]
+identifier = 'home'
+name = '首页'
+url = '/'
+weight = -100
+[menu.main.params]
+icon = 'home'
+
+[[menu.social]]
+identifier = 'github'
+name = 'GitHub'
+url = 'https://github.com/xingtianwuganqi'
+[menu.social.params]
+icon = 'brand-github'
+
+[[menu.social]]
+identifier = 'rss'
+name = 'RSS 订阅'
+url = '/index.xml'
+[menu.social.params]
+icon = 'rss'
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 5
+ordered = false
+
+[markup.highlight]
+noClasses = false
+codeFences = true
+guessSyntax = false
+lineNos = false
+tabWidth = 4

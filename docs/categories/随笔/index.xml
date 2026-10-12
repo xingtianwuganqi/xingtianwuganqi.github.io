@@ -1,19 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>随笔 on Ethan编程小站</title>
-    <link>https://xingtianwuganqi.github.io/categories/%E9%9A%8F%E7%AC%94/</link>
-    <description>Recent content in 随笔 on Ethan编程小站</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 08 Aug 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://xingtianwuganqi.github.io/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>mac 蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法</title>
-      <link>https://xingtianwuganqi.github.io/posts/mac-%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E9%BC%A0%E6%A0%87%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%E4%B9%8B%E5%90%8E%E6%97%A0%E6%B3%95%E9%87%8D%E6%96%B0%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
-      <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/mac-%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E9%BC%A0%E6%A0%87%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%E4%B9%8B%E5%90%8E%E6%97%A0%E6%B3%95%E9%87%8D%E6%96%B0%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
-      <description>网上找的方法，记录一下 find ~/Library -name com.apple.Bluetooth.*.plist -exec rm{};&#xA;sudo rm /Library/Preferences/com.apple.Bluetooth.plist&#xA;重启之后重新配置一下蓝牙设备。</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>随笔 on JunJing.dev</title><link>https://xingtianwuganqi.github.io/categories/%E9%9A%8F%E7%AC%94/</link><description>Recent content in 随笔 on JunJing.dev</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Ethan</copyright><lastBuildDate>Wed, 26 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xingtianwuganqi.github.io/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml"/><item><title>Swift 简单的圆形进度条</title><link>https://xingtianwuganqi.github.io/posts/hugo-%E5%BB%BA%E7%AB%99%E7%AE%80%E5%8D%95%E6%AD%A5%E9%AA%A4/</link><pubDate>Wed, 26 Jun 2024 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/hugo-%E5%BB%BA%E7%AB%99%E7%AE%80%E5%8D%95%E6%AD%A5%E9%AA%A4/</guid><description>&lt;h1 id="swift-简单的圆形进度条">Swift 简单的圆形进度条
+&lt;/h1>&lt;p>&lt;img src="https://upload-images.jianshu.io/upload_images/8042403-4ab441e0e881395f.gif?imageMogr2/auto-orient/strip"
+loading="lazy"
+alt="download.gif"
+>&lt;/p>
+&lt;pre tabindex="0">&lt;code>&lt;/code>&lt;/pre>&lt;!-- more --></description></item><item><title>mac 蓝牙键盘、鼠标断开连接之后无法重新连接的解决办法</title><link>https://xingtianwuganqi.github.io/posts/mac-%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E9%BC%A0%E6%A0%87%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%E4%B9%8B%E5%90%8E%E6%97%A0%E6%B3%95%E9%87%8D%E6%96%B0%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link><pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/mac-%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E9%BC%A0%E6%A0%87%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%E4%B9%8B%E5%90%8E%E6%97%A0%E6%B3%95%E9%87%8D%E6%96%B0%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid><description>&lt;h3 id="网上找的方法记录一下">网上找的方法，记录一下
+&lt;/h3>&lt;p>find ~/Library -name com.apple.Bluetooth.*.plist -exec rm{};&lt;/p>
+&lt;p>sudo rm /Library/Preferences/com.apple.Bluetooth.plist&lt;/p>
+&lt;p>重启之后重新配置一下蓝牙设备。&lt;/p></description></item></channel></rss>

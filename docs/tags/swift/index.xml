@@ -1,68 +1,971 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Swift on Ethan编程小站</title>
-    <link>https://xingtianwuganqi.github.io/tags/swift/</link>
-    <description>Recent content in Swift on Ethan编程小站</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://xingtianwuganqi.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>创建私有cocoaPods库及遇到的问题</title>
-      <link>https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
-      <description>1 .创建远端（github/gitlab）仓库 例如：创建-&amp;gt;projectMain作为项目主功能仓库，创建-&amp;gt;project_login为后期引用的（登录）组件化工程。创建-&amp;gt;project_SDK为后期引用的（基础组件SDK）组件化工程。创建-&amp;gt;project_Repo为版本管理仓库。。等等&#xA;2.创建本地仓库 例如：新建桌面文件A文件（如有多级仓库可在A文件下创建子文件a文件、b文件、c文件等）&#xA;3.将远端URL仓库克隆至本地: #关键代码 git clone http://xxxx.git tips cd 至A文件执行克隆，如：git clone http://project_login.git 4. 创建podspec文件（描述pod库版本文件）: pod spec create 工程名称 如：进入步骤3中克隆的项目文件，在隐藏文件.git同级执行：pod spec create project_login&#xA;tips pod spec create project_login 5.配置spec（描述pod库版本文件）:直接XCode打开或者文本编译器打开 Pod::Spec.new do |spec| spec.name = &amp;#34;project_login&amp;#34; spec.version = &amp;#34;1.0.2&amp;#34; spec.summary = &amp;#34;project_login.&amp;#34; spec.description = &amp;lt;&amp;lt;-DESC project_login DESC spec.homepage = &amp;#34;http://192.168.65.252/jingjun/project_login.git&amp;#34; spec.license = { :type =&amp;gt; &amp;#34;MIT&amp;#34;, :file =&amp;gt; &amp;#34;LICENSE&amp;#34; } spec.swift_version = &amp;#39;4.0&amp;#39; spec.author = { &amp;#34;jingjun&amp;#34; =&amp;gt; &amp;#34;254032134@qq.com&amp;#34; } spec.</description>
-    </item>
-    <item>
-      <title>iOS 实现列表下拉顶部图片放大</title>
-      <link>https://xingtianwuganqi.github.io/posts/ios-%E5%AE%9E%E7%8E%B0%E5%88%97%E8%A1%A8%E4%B8%8B%E6%8B%89%E9%A1%B6%E9%83%A8%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/ios-%E5%AE%9E%E7%8E%B0%E5%88%97%E8%A1%A8%E4%B8%8B%E6%8B%89%E9%A1%B6%E9%83%A8%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7/</guid>
-      <description>实现思路 tableview 下拉中露出的tableview背景时，动态设置顶部的图片高度，使用图片盖住露出的tableview背景&#xA;demo地址&#xA;代码示例： import UIKit import RxSwift let ScreenW = UIScreen.main.bounds.size.width let statusBarH = UIApplication.shared.statusBarFrame.size.height class AccountHeaderView: UIView { var disposeBag = DisposeBag() lazy var panoView : UIImageView = { let imgView = UIImageView() imgView.image = UIImage(named: &amp;#34;avator&amp;#34;) imgView.contentMode = .scaleAspectFill imgView.clipsToBounds = true return imgView }() var bgImgFrame: CGRect // 展示其他信息 var infoView: UIView? lazy var backPanoView : UIView = { let view = UIView() return view }() override init(frame:CGRect) { self.</description>
-    </item>
-    <item>
-      <title>Swift 仿微信朋友圈实现图片点击放大查看</title>
-      <link>https://xingtianwuganqi.github.io/posts/swift-%E4%BB%BF%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7%E6%9F%A5%E7%9C%8B/</link>
-      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/swift-%E4%BB%BF%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7%E6%9F%A5%E7%9C%8B/</guid>
-      <description>实现思路 scrollView 具有放大缩小的功能，实现图片的放大与缩小的思路就是将imageView放在scrollView上，双击时调用scrollView的&#xA;@available(iOS 3.0, *) open func zoom(to rect: CGRect, animated: Bool) 来实现imageView的放大与缩小&#xA;Demo地址&#xA;效果图： 实现步骤 1.两个初始化方法 // 通过图片url数组初始化 init(urlArr: [String],number: Int) // 通过图片数组初始化 init(_ Images: [UIImage],number: Int) 在初始化方法中初始化backScrollView 和承载imageView的scrollView,并给imageView和scrollView添加点击手势&#xA;2.承载imageView的scrollView设置代理方法 extension ShowBigImgView : UIScrollViewDelegate { // 当scrollview 尝试进行缩放的时候 func viewForZooming(in scrollView: UIScrollView) -&amp;gt; UIView? { let offsetX = self.backScroll.contentOffset.x let tagValue = offsetX / ScreenW return self.backScroll.viewWithTag(Int(tagValue))?.viewWithTag(100 + Int(tagValue)) } // 当缩放完毕的时候调用 func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?</description>
-    </item>
-    <item>
-      <title>Swift 简单的圆形进度条</title>
-      <link>https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/</link>
-      <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/</guid>
-      <description>下载时的圆形进度条 示例图： 代码如下： import UIKit func degreesToRadians(x:CGFloat) -&amp;gt; CGFloat{ return CGFloat(double_t.pi) * (x) / 180.0 } let ProgressDownload = 1 class NewsYBDownLoadVIew: UIView { var _trackLayer:CAShapeLayer? var _progressLayer:CAShapeLayer? private var progress:CGFloat = 0 //中间叉的图片 private let cancelImg : UIImageView = { let image = UIImageView() image.image = UIImage(named: &amp;#34;news_yb_cancel_down&amp;#34;) return image }() // 在合适的位置设计setprogress 属性即可 var setprogress:CGFloat = 0{ willSet { changeProgress(progress: newValue) } } override func draw(_ rect: CGRect) { // Drawing code //创建一个track shape layer _trackLayer = CAShapeLayer() _trackLayer?</description>
-    </item>
-    <item>
-      <title>iOS 获取相册中的视频列表</title>
-      <link>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%86%8C%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</link>
-      <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%86%8C%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</guid>
-      <description>获取相册中的视频文件 func getAllvideo() { let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil) print(cameraRolls) guard cameraRolls.count &amp;gt; 0 else { return } for i in 0 ..&amp;lt; cameraRolls.count { let albumCollection = cameraRolls[i] // 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中 LOGGER.debug(albumCollection.localizedTitle) let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil) for i in 0 ..&amp;lt; albumAssets.count { let asset = albumAssets[i] let filetype = asset.mediaType if filetype == PHAssetMediaType.video { videoMessage(asset: asset,count: albumAssets.count) } continue } } } 获取视频信息 // 获取PHAsset 对象的信息 func videoMessage(asset: PHAsset , count: Int) { let options = PHVideoRequestOptions() options.</description>
-    </item>
-    <item>
-      <title>NSAttributedString 详解</title>
-      <link>https://xingtianwuganqi.github.io/posts/nsattributedstring-%E8%AF%A6%E8%A7%A3/</link>
-      <pubDate>Wed, 29 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/nsattributedstring-%E8%AF%A6%E8%A7%A3/</guid>
-      <description>NSAttributedString 详解 主要的几个属性： @available(iOS 6.0, *) public static let font: NSAttributedStringKey // 字体，value是UIFont对象,默认：字体：Helvetica(Neue) 字号：12 @available(iOS 6.0, *) public static let paragraphStyle: NSAttributedStringKey // 绘图的风格（居中，换行模式，间距等诸多风格），value是NSParagraphStyle对象 @available(iOS 6.0, *) public static let foregroundColor: NSAttributedStringKey // 文字颜色，value是UIFont对象，默认值为黑色 @available(iOS 6.0, *) public static let backgroundColor: NSAttributedStringKey // 背景色，value是UIFont，默认值为nil, 透明色 @available(iOS 6.0, *) public static let ligature: NSAttributedStringKey // 字符连体，value是NSNumber，0 表示没有连体字符，1 表示使用默认的连体字符 @available(iOS 6.0, *) public static let kern: NSAttributedStringKey // 字符间隔，value是NSNumber，正值间距加宽，负值间距变窄 @available(iOS 6.0, *) public static let strikethroughStyle: NSAttributedStringKey // 删除线，value是NSNumber @available(iOS 6.</description>
-    </item>
-    <item>
-      <title>Swift 支持某个页面横竖屏切换与强制横屏</title>
-      <link>https://xingtianwuganqi.github.io/posts/swift-%E6%94%AF%E6%8C%81%E6%A8%AA%E7%AB%96%E5%B1%8F%E4%B8%8E%E5%BC%BA%E5%88%B6%E6%A8%AA%E5%B1%8F/</link>
-      <pubDate>Thu, 16 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/swift-%E6%94%AF%E6%8C%81%E6%A8%AA%E7%AB%96%E5%B1%8F%E4%B8%8E%E5%BC%BA%E5%88%B6%E6%A8%AA%E5%B1%8F/</guid>
-      <description>Demo地址&#xA;首先需要清晰几个概念&#xA;UIDeviceOrientation 设备的物理方向&#xA;UIDeviceOrientation即我们手持的移动设备的Orientation，是一个三围空间，有六个方向 public enum UIDeviceOrientation : Int { case unknown case portrait // Device oriented vertically, home button on the bottom case portraitUpsideDown // Device oriented vertically, home button on the top case landscapeLeft // Device oriented horizontally, home button on the right case landscapeRight // Device oriented horizontally, home button on the left case faceUp // Device oriented flat, face up case faceDown // Device oriented flat, face down } UIInterfaceOrientation 界面的显示方向 UIInterfaceOrientation即我们看到的视图的Orientation，可以理解为statusBar所在的方向，是一个二维空间，有四个方向 public enum UIInterfaceOrientation : Int { case unknown case portrait case portraitUpsideDown case landscapeLeft case landscapeRight } 支持某个页面横竖屏切换 项目要求是要某个界面能够横竖屏显示，其他界面要竖屏显示</description>
-    </item>
-    <item>
-      <title>iOS 获取String中的url并用其他颜色显示</title>
-      <link>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/</link>
-      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/</guid>
-      <description>这里用textView显示带url的String fileprivate let detailText&#x9;= UITextView().then { (textview)in textview.font = UIFont.systemFont(ofSize:14) textview.textColor = UIColor(hexString:&amp;#34;#333333&amp;#34;) textview.isEditable =false; //必须禁止输入，否则点击将弹出输入键盘 textview.isScrollEnabled =false; } 用这个方法获取url,获取url的数组 private func getUrls(str:String) -&amp;gt; [String] { varurls = [String]() // 创建一个正则表达式对象 do{ let dataDetector = try NSDataDetector(types:NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue)) // 匹配字符串，返回结果集 let res = dataDetector.matches(in: str,options:NSRegularExpression.MatchingOptions(rawValue:0),range:NSMakeRange(0, str.count)) // 取出结果 for checkingRes in res { urls.append((str as NSString).substring(with: checkingRes.range)) } } catch{ print(error) } returnurls } 获取url数组 let arr =self.getUrls(str: state.detail) let attrubuteStr = NSMutableAttributedString(string: state.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Swift on JunJing.dev</title><link>https://xingtianwuganqi.github.io/tags/swift/</link><description>Recent content in Swift on JunJing.dev</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Ethan</copyright><lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://xingtianwuganqi.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml"/><item><title>创建私有cocoaPods库及遇到的问题</title><link>https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid><description>&lt;h4 id="1-创建远端githubgitlab仓库">1 .创建远端（github/gitlab）仓库
+&lt;/h4>&lt;blockquote>
+&lt;p>例如：创建-&amp;gt;projectMain作为项目主功能仓库，创建-&amp;gt;project_login为后期引用的（登录）组件化工程。创建-&amp;gt;project_SDK为后期引用的（基础组件SDK）组件化工程。创建-&amp;gt;project_Repo为版本管理仓库。。等等&lt;/p>&lt;/blockquote>
+&lt;h4 id="2创建本地仓库">2.创建本地仓库
+&lt;/h4>&lt;blockquote>
+&lt;p>例如：新建桌面文件A文件（如有多级仓库可在A文件下创建子文件a文件、b文件、c文件等）&lt;/p>&lt;/blockquote>
+&lt;h4 id="3将远端url仓库克隆至本地">3.将远端URL仓库克隆至本地:
+&lt;/h4>&lt;pre tabindex="0">&lt;code>#关键代码
+git clone http://xxxx.git
+tips
+cd 至A文件执行克隆，如：git clone http://project_login.git
+&lt;/code>&lt;/pre>&lt;!-- more -->
+&lt;h4 id="4-创建podspec文件描述pod库版本文件---pod-spec-create-工程名称">4. 创建podspec文件（描述pod库版本文件）: &lt;font color=#A52A2A> pod spec create 工程名称 &lt;/font>
+&lt;/h4>&lt;blockquote>
+&lt;p>如：进入步骤3中克隆的项目文件，在隐藏文件.git同级执行：pod spec create project_login&lt;/p>&lt;/blockquote>
+&lt;pre tabindex="0">&lt;code>tips
+pod spec create project_login
+&lt;/code>&lt;/pre>&lt;h4 id="5配置spec描述pod库版本文件直接xcode打开或者文本编译器打开">5.配置spec（描述pod库版本文件）:&lt;font color=#A52A2A>直接XCode打开或者文本编译器打开&lt;/font>
+&lt;/h4>&lt;pre tabindex="0">&lt;code>Pod::Spec.new do |spec|
+spec.name = &amp;#34;project_login&amp;#34;
+spec.version = &amp;#34;1.0.2&amp;#34;
+spec.summary = &amp;#34;project_login.&amp;#34;
+spec.description = &amp;lt;&amp;lt;-DESC
+project_login
+DESC
+spec.homepage = &amp;#34;http://192.168.65.252/jingjun/project_login.git&amp;#34;
+spec.license = { :type =&amp;gt; &amp;#34;MIT&amp;#34;, :file =&amp;gt; &amp;#34;LICENSE&amp;#34; }
+spec.swift_version = &amp;#39;4.0&amp;#39;
+spec.author = { &amp;#34;jingjun&amp;#34; =&amp;gt; &amp;#34;254032134@qq.com&amp;#34; }
+spec.platform = :ios, &amp;#34;10.0&amp;#34;
+spec.source = { :git =&amp;gt; &amp;#34;http://192.168.65.252/jingjun/project_login.git&amp;#34;, :tag =&amp;gt; &amp;#34;#{spec.version}&amp;#34; }
+spec.source_files = &amp;#34;project_name/swiftText/*.{swift}&amp;#34;
+spec.frameworks = &amp;#34;Foundation&amp;#34;,&amp;#34;UIKit&amp;#34;
+#spec.ios.dependency &amp;#34;SDWebImage&amp;#34;
+spec.ios.dependency &amp;#34;SnapKit&amp;#34;
+spec.ios.dependency &amp;#34;RxSwift&amp;#34;
+end
+&lt;/code>&lt;/pre>&lt;p>备注版：&lt;/p>
+&lt;pre tabindex="0">&lt;code>#项目中有很多配置，下面仅书写必要的几个（一定注意配置正确）：
+#下面`spec`有的直接写是`s` 注意上下对应
+Pod::Spec.new do |spec|
+#项目名称一般与创建的远端仓库名字一致
+spec.name = &amp;#34;mPaaS_Login&amp;#34;
+#对应版本号（所有代码但凡改动就需要修改版本号：最大保持四位数：1.0.0.0）
+spec.version = &amp;#34;1.0.0&amp;#34;
+#简单描述
+spec.summary = &amp;#34;A short description of mPaaS_Login.&amp;#34;
+#简单功能描述：一定注意`&amp;lt;&amp;lt;-DESC` 在第一行，描述内容另起一行 ，最后`DESC`一行包裹
+spec.description = &amp;lt;&amp;lt;-DESC
+login
+DESC
+#文件页可随意写一般写仓库链接
+spec.homepage = &amp;#34;http://192.168.66.56:9080/iOS_HF/mPaaS_Login.git&amp;#34;
+#协议
+spec.license = { :type =&amp;gt; &amp;#34;MIT&amp;#34; }
+#作者（版权）
+spec.author = &amp;#34;ws&amp;#34;
+#支持平台版本 如还支持其他平台可百度拓展
+spec.platform = :ios, &amp;#34;8.0&amp;#34;
+#项目源文件地址 远端仓库地址
+spec.source = { :git =&amp;gt; &amp;#34;http://192.168.66.56:9080/iOS_HF/mPaaS_Login.git&amp;#34;, :tag =&amp;gt; &amp;#34;#{spec.version}&amp;#34; }
+#仓库暴露的一些文件，如有引用其他动态库、静态库百度拓展
+spec.ios.source_files = &amp;#34;HF_NHBankA/HF_NHBankA/Sources/**/*.{h,m,mm}&amp;#34;
+#添加依赖 如有依赖下面检测合法性记得加上文件源
+spec.ios.dependency &amp;#34;HF_mPaaSSDK&amp;#34;
+#收尾
+end
+&lt;/code>&lt;/pre>&lt;p>source_files 极易写错，注意是从project_login.podspec同级文件夹开始，一层一层写&lt;/p>
+&lt;pre tabindex="0">&lt;code>// 如果swiftText文件下就是.swift文件就在swiftText后面写/*
+spec.source_files = &amp;#34;project_name/swiftText/*.{swift}&amp;#34;
+// 如果swiftText文件下还有文件夹，可以写成
+spec.source_files = &amp;#34;project_name/swiftText/**/*.{h,m,swift}&amp;#34;
+&lt;/code>&lt;/pre>&lt;h4 id="6-检测sepc文件配置是否正确pod-lib-lint-allow-warnings">6. 检测sepc文件配置是否正确:&lt;font color=#A52A2A>pod lib lint &amp;ndash;allow-warnings&lt;/font>
+&lt;/h4>&lt;pre tabindex="0">&lt;code>pod lib lint是只从本地验证你的pod能否通过验证
+pod spec lint是从本地和远程验证你的pod能否通过验证
+`--allow-warnings`意思是忽略警告，一般都加，如有报错，针对错误问题修改配置文件，如配置文件确认无误，并提示编译问题可按照： ([https://www.jianshu.com/p/88180b4d2ab7](https://www.jianshu.com/p/88180b4d2ab7))文章配置.。无误后继续`步骤7`
+#万能检测命令：sources 为对应版本管理库地址
+pod lib lint --allow-warnings --sources=http://192.168.66.56:9080/iOS_HF/mPaaS_Repo.git --use-libraries --skip-import-validation --verbose
+#万能检测命令：sources 为对应版本管理库地址
+pod lib lint --allow-warnings --sources=http://192.168.66.56:9080/iOS_HFAPP/HFmPaaS_Repo.git --use-libraries --skip-import-validation --verbose
+&lt;/code>&lt;/pre>&lt;h4 id="7-提交代码至远端仓库">7. 提交代码至远端仓库
+&lt;/h4>&lt;pre tabindex="0">&lt;code>#添加文件
+git add .
+#提交添加描述
+git commit -m &amp;#34;描述&amp;#34;
+#推送至远端仓库
+git push
+#打tag标签,与`步骤5`中spec文件版本保持一致
+git tag 1.0.0
+#推送本次所打的所有tag标签到远程origin。
+git push --tags
+// 注意.podspec 中的文件.version 和 tag 相同
+&lt;/code>&lt;/pre>&lt;h4 id="8-首次将本地私有仓库与远程管理库连接-pod-repo-add-版本管理仓库名-远端版本管理仓库地址urlgit">8. （首次）将本地私有仓库与远程管理库连接 :&lt;font color=#A52A2A>pod repo add 版本管理仓库名 远端版本管理仓库地址url.git&lt;/font>
+&lt;/h4>&lt;pre tabindex="0">&lt;code>#关联版本仓库
+pod repo add project_login &amp;#39;http://192.168.65.252/jingjun/project_login.git&amp;#39;
+&lt;/code>&lt;/pre>&lt;h4 id="9-将spec文件推送到远程管理库--pod-repo-push-版本管理仓库名-组件库名podspec-use-libraries-allow-warnings-verbose">9. 将spec文件推送到远程管理库 : &lt;font color=#A52A2A>pod repo push 版本管理仓库名 组件库名.podspec &amp;ndash;use-libraries &amp;ndash;allow-warnings &amp;ndash;verbose&lt;/font>
+&lt;/h4>&lt;pre tabindex="0">&lt;code>pod repo push project_login project_login.podspec --use-libraries --allow-warnings --verbose
+#万能推送命令(需改成自己的文件名称)：
+project_login project_login.podspec --sources=&amp;#39;http://192.168.65.252/jingjun/project_login.git,https://github.com/CocoaPods/Specs.git&amp;#39; --use-libraries --skip-import-validation --verbose --allow-warnings
+&lt;/code>&lt;/pre>&lt;h4 id="10引用私有库">10.引用私有库
+&lt;/h4>&lt;p>在主项目里Podfile文件里添加需要引用私有源地址:&lt;/p>
+&lt;pre tabindex="0">&lt;code>source &amp;#39;http://192.168.65.252/jingjun/project_login.git&amp;#39;
+source &amp;#39;https://github.com/CocoaPods/Specs.git&amp;#39;
+pod &amp;#39;project_login&amp;#39;,:git =&amp;gt; &amp;#39;http://192.168.65.252/jingjun/project_login.git&amp;#39;
+&lt;/code>&lt;/pre>&lt;h3 id="遇到的问题">遇到的问题
+&lt;/h3>&lt;h4 id="1encountered-an-unknown-error-unable-to-find-a-specification-for-xxxx-depended-upon-by-xxxx">1）Encountered an unknown error (Unable to find a specification for &lt;code>xxxx&lt;/code> depended upon by &lt;code>xxxx&lt;/code>
+&lt;/h4>&lt;p>// 给&amp;ndash;sources 赋值的时候，一定也要带上官方的源。&lt;/p>
+&lt;blockquote>
+&lt;p>官方的源：https://github.com/CocoaPods/Specs.git&lt;/p>&lt;/blockquote>
+&lt;pre tabindex="0">&lt;code>pod repo push project_login project_login.podspec --sources=&amp;#39;http://192.168.65.252/jingjun/project_login.git,https://github.com/CocoaPods/Specs.git&amp;#39; --use-libraries --skip-import-validation --verbose --allow-warnings
+&lt;/code>&lt;/pre>&lt;h4 id="2-the-project_loginpodspec-specification-does-not-validate">2）[!] The &lt;code>project_login.podspec&lt;/code> specification does not validate.
+&lt;/h4>&lt;blockquote>
+&lt;p>.podspec文件存在警告时不能成功push。加 &amp;ndash;allow-warnings&lt;/p>&lt;/blockquote>
+&lt;pre tabindex="0">&lt;code>// 在后面加上 --allow-warnings
+pod repo push project_login project_login.podspec --sources=&amp;#39;http://192.168.65.252/jingjun/project_login.git,https://github.com/CocoaPods/Specs.git&amp;#39; --use-libraries --skip-import-validation --verbose --allow-warnings
+&lt;/code>&lt;/pre>&lt;h4 id="3error--ios-unknown-encountered-an-unknown-error-unable-to-find-a-specification-for-rxswift--depended-upon-by-rxswiftextcore">3）ERROR | [iOS] unknown: Encountered an unknown error (Unable to find a specification for &lt;code>RxSwift &lt;/code> depended upon by &lt;code>RxSwiftExt/Core&lt;/code>
+&lt;/h4>&lt;pre tabindex="0">&lt;code>// 首先在.podspec 文件中加
+spec.ios.dependency &amp;#34;SnapKit&amp;#34;
+spec.ios.dependency &amp;#34;RxSwift&amp;#34;
+// 再在项目的podfile 文件中加入
+source &amp;#39;https://github.com/CocoaPods/Specs.git&amp;#39;
+source &amp;#39;http://192.168.65.252/jingjun/project_login.git&amp;#39;
+// 然后调用命令
+pod repo push project_login project_login.podspec --sources=&amp;#39;http://192.168.65.252/jingjun/project_login.git,https://github.com/CocoaPods/Specs.git&amp;#39; --use-libraries --skip-import-validation --verbose --allow-warnings
+&lt;/code>&lt;/pre>&lt;h4 id="4error--ios-unknown-encountered-an-unknown-error-poddslerror-during-validation">4）ERROR | [iOS] unknown: Encountered an unknown error (Pod::DSLError) during validation
+&lt;/h4>&lt;blockquote>
+&lt;p>一般是.podspec 文件格式有问题，检测是否错误输入&lt;/p>&lt;/blockquote>
+&lt;p>####5）[!] CocoaPods could not find compatible versions for pod &amp;ldquo;PLMediaStreamingKit&amp;rdquo;:  In Podfile:    PLMediaStreamingKit (~&amp;gt; 2.3.2)Specs satisfying the &lt;code>PLMediaStreamingKit (~&amp;gt; 2.3.2)&lt;/code> dependency were found, but they required a higher minimum deployment target.&lt;/p>
+&lt;pre tabindex="0">&lt;code>spec.platform 的iOS版本要与主文件中 platform :ios , &amp;#39;7.0&amp;#39;，的版本一致
+&lt;/code>&lt;/pre></description></item><item><title>iOS 实现列表下拉顶部图片放大</title><link>https://xingtianwuganqi.github.io/posts/ios-%E5%AE%9E%E7%8E%B0%E5%88%97%E8%A1%A8%E4%B8%8B%E6%8B%89%E9%A1%B6%E9%83%A8%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7/</link><pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/ios-%E5%AE%9E%E7%8E%B0%E5%88%97%E8%A1%A8%E4%B8%8B%E6%8B%89%E9%A1%B6%E9%83%A8%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7/</guid><description>&lt;h3 id="实现思路">实现思路
+&lt;/h3>&lt;p>tableview 下拉中露出的tableview背景时，动态设置顶部的图片高度，使用图片盖住露出的tableview背景&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/xingtianwuganqi/ListTopImgDemo" target="_blank" rel="noopener"
+>demo地址&lt;/a>&lt;/p>
+&lt;h4 id="代码示例">代码示例：
+&lt;/h4>&lt;!-- more -->
+&lt;pre tabindex="0">&lt;code>import UIKit
+import RxSwift
+let ScreenW = UIScreen.main.bounds.size.width
+let statusBarH = UIApplication.shared.statusBarFrame.size.height
+class AccountHeaderView: UIView {
+var disposeBag = DisposeBag()
+lazy var panoView : UIImageView = {
+let imgView = UIImageView()
+imgView.image = UIImage(named: &amp;#34;avator&amp;#34;)
+imgView.contentMode = .scaleAspectFill
+imgView.clipsToBounds = true
+return imgView
+}()
+var bgImgFrame: CGRect
+// 展示其他信息
+var infoView: UIView?
+lazy var backPanoView : UIView = {
+let view = UIView()
+return view
+}()
+override init(frame:CGRect) {
+self.bgImgFrame = CGRect(x: 0, y: 0, width: ScreenW, height: 200)
+super.init(frame: frame)
+self.addSubview(backPanoView)
+self.backPanoView.addSubview(panoView)
+// 展示其他信息
+self.infoView = UIView()
+self.addSubview(infoView!)
+self.backPanoView.frame = self.bgImgFrame
+}
+override func layoutSubviews() {
+super.layoutSubviews()
+self.panoView.snp.makeConstraints { (make) in
+make.edges.equalToSuperview()
+}
+self.infoView?.snp.makeConstraints { (make) in
+make.top.equalToSuperview().offset(200)
+make.left.right.equalToSuperview()
+make.bottom.equalToSuperview()
+}
+}
+required init?(coder aDecoder: NSCoder) {
+fatalError(&amp;#34;init(coder:) has not been implemented&amp;#34;)
+}
+func scrollVieDidScroll(offsetY: CGFloat) {
+// 在tableview滑动过程中重新这只backPanoView 的frame
+if offsetY &amp;lt;= 0{
+var rect = self.backPanoView.frame
+rect.origin.y = offsetY
+rect.size.height = 200 - offsetY
+self.backPanoView.frame = rect
+self.panoView.setNeedsLayout()
+}
+}
+}
+&lt;/code>&lt;/pre></description></item><item><title>Swift 仿微信朋友圈实现图片点击放大查看</title><link>https://xingtianwuganqi.github.io/posts/swift-%E4%BB%BF%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7%E6%9F%A5%E7%9C%8B/</link><pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/swift-%E4%BB%BF%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7%E6%9F%A5%E7%9C%8B/</guid><description>&lt;h2 id="实现思路">实现思路
+&lt;/h2>&lt;p>scrollView 具有放大缩小的功能，实现图片的放大与缩小的思路就是将imageView放在scrollView上，双击时调用scrollView的&lt;/p>
+&lt;pre tabindex="0">&lt;code>@available(iOS 3.0, *)
+open func zoom(to rect: CGRect, animated: Bool)
+&lt;/code>&lt;/pre>&lt;p>来实现imageView的放大与缩小&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/xingtianwuganqi/ShowImageDemo" target="_blank" rel="noopener"
+>Demo地址&lt;/a>&lt;/p>
+&lt;!-- more -->
+&lt;h3 id="效果图">效果图：
+&lt;/h3>&lt;p>&lt;img src="https://upload-images.jianshu.io/upload_images/8042403-acaea825a5c4854c.gif?imageMogr2/auto-orient/strip"
+loading="lazy"
+alt="RPReplay.gif"
+>&lt;/p>
+&lt;h3 id="实现步骤">实现步骤
+&lt;/h3>&lt;h4 id="1两个初始化方法">1.两个初始化方法
+&lt;/h4>&lt;pre tabindex="0">&lt;code>
+// 通过图片url数组初始化
+init(urlArr: [String],number: Int)
+// 通过图片数组初始化
+init(_ Images: [UIImage],number: Int)
+&lt;/code>&lt;/pre>&lt;p>在初始化方法中初始化backScrollView 和承载imageView的scrollView,并给imageView和scrollView添加点击手势&lt;/p>
+&lt;h4 id="2承载imageview的scrollview设置代理方法">2.承载imageView的scrollView设置代理方法
+&lt;/h4>&lt;pre tabindex="0">&lt;code>extension ShowBigImgView : UIScrollViewDelegate {
+// 当scrollview 尝试进行缩放的时候
+func viewForZooming(in scrollView: UIScrollView) -&amp;gt; UIView? {
+let offsetX = self.backScroll.contentOffset.x
+let tagValue = offsetX / ScreenW
+return self.backScroll.viewWithTag(Int(tagValue))?.viewWithTag(100 + Int(tagValue))
+}
+// 当缩放完毕的时候调用
+func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+printLog(message: &amp;#34;缩放结束-\(scale)&amp;#34;)
+}
+// 当正在缩放的时候
+func scrollViewDidZoom(_ scrollView: UIScrollView) {
+printLog(message: &amp;#34;正在缩放&amp;#34;)
+let offsetX = self.backScroll.contentOffset.x
+let tagValue = offsetX / ScreenW
+//获取到这个scrollview
+var centerX = self.backScroll.center.x
+var centerY = self.backScroll.center.y
+centerX = scrollView.contentSize.width &amp;gt; scrollView.frame.size.width ?
+scrollView.contentSize.width/2:centerX
+centerY = scrollView.contentSize.height &amp;gt; scrollView.frame.size.height ?
+scrollView.contentSize.height/2:centerY
+scrollView.viewWithTag(100 + Int(tagValue))?.center = CGPoint(x: centerX, y: centerY)
+}
+}
+&lt;/code>&lt;/pre>&lt;h4 id="3图片的点击放大手势">3.图片的点击放大手势
+&lt;/h4>&lt;pre tabindex="0">&lt;code> @objc func imageClick(tap:UITapGestureRecognizer) {
+var newscale : CGFloat = 0
+guard let scroll = tap.view?.superview as? UIScrollView else {
+return
+}
+if scroll.zoomScale == 1.0 {
+newscale = 3
+}else {
+newscale = 1.0
+}
+let zoomRect = self.zoomRectForScale(scrollview: scroll,scale: newscale, center: tap.location(in: tap.view))
+scroll.zoom(to: zoomRect, animated: true)
+}
+// 计算放大或缩小的frame
+func zoomRectForScale(scrollview: UIScrollView, scale: CGFloat,center: CGPoint) -&amp;gt; CGRect {
+var zoomRect: CGRect = CGRect()
+zoomRect.size.height = scrollview.frame.size.height / scale
+zoomRect.size.width = scrollview.frame.size.width / scale
+zoomRect.origin.x = center.x - (zoomRect.size.width / 2.0)
+zoomRect.origin.y = center.y - (zoomRect.size.height / 2.0)
+return zoomRect
+}
+&lt;/code>&lt;/pre>&lt;h4 id="4出现时的动画">4.出现时的动画
+&lt;/h4>&lt;pre tabindex="0">&lt;code> func pushAnimation(num: Int) {
+// 获取UIImageView()
+guard let imageView = self.backScroll.viewWithTag(100 + num) as? UIImageView else {
+return
+}
+transformAnimation(animationView: imageView)
+}
+// 缩放动画
+func transformAnimation(animationView: UIImageView) {
+let animation: CABasicAnimation = CABasicAnimation()
+animation.keyPath = &amp;#34;transform.scale&amp;#34;
+animation.fromValue = 0.2 // 原始系数
+animation.toValue = 1 // 缩放系数
+animation.duration = 0.3
+animation.isRemovedOnCompletion = true
+animation.fillMode = kCAFillModeRemoved
+animationView.layer.add(animation, forKey: nil)
+}
+&lt;/code>&lt;/pre>&lt;h4 id="5消失时的动画">5.消失时的动画
+&lt;/h4>&lt;pre tabindex="0">&lt;code> @objc func backBtnClick() {
+self.removeAnimation()
+DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+self.removeFromSuperview()
+}
+}
+// 缩放 + 淡入淡出
+func removeAnimation() {
+let x = Int(self.backScroll.contentOffset.x)
+let y = Int(ScreenW)
+guard (x % y) == 0 else{
+return
+}
+// 获取
+let tag = x / y + 100
+guard let imageView = self.backScroll.viewWithTag(tag) else {
+return
+}
+let scale = CABasicAnimation()
+scale.keyPath = &amp;#34;transform.scale&amp;#34;
+scale.fromValue = 1.0
+scale.toValue = 0.2
+scale.duration = 0.3
+scale.fillMode = kCAFillModeForwards
+scale.isRemovedOnCompletion = false
+imageView.layer.add(scale, forKey: nil)
+let backAnimation = CAKeyframeAnimation()
+backAnimation.keyPath = &amp;#34;opacity&amp;#34;
+backAnimation.duration = 0.4
+backAnimation.values = [
+NSNumber(value: 0.90 as Float),
+NSNumber(value: 0.60 as Float),
+NSNumber(value: 0.30 as Float),
+NSNumber(value: 0.0 as Float),
+]
+backAnimation.keyTimes = [
+NSNumber(value: 0.1),
+NSNumber(value: 0.2),
+NSNumber(value: 0.3),
+NSNumber(value: 0.4)
+]
+backAnimation.fillMode = kCAFillModeForwards
+backAnimation.isRemovedOnCompletion = false
+self.layer.add(backAnimation, forKey: nil)
+}
+&lt;/code>&lt;/pre>&lt;h4 id="6调用">6.调用
+&lt;/h4>&lt;pre tabindex="0">&lt;code> func showImg (imgs: [String],url: String) {
+var number = 0
+//获取当前图片的下标
+_ = imgs.enumerated().map { (index,urlStr) in
+if urlStr == url {
+number = index
+}
+}
+let show = ShowBigImgView(urlArr: imgs,number: number)
+UIApplication.shared.keyWindow?.addSubview(show)
+// 缩放动画
+show.pushAnimation(num: number)
+}
+&lt;/code>&lt;/pre>&lt;p>&lt;a class="link" href="https://github.com/xingtianwuganqi/ShowImageDemo" target="_blank" rel="noopener"
+>Demo地址&lt;/a>&lt;/p></description></item><item><title>Swift 简单的圆形进度条</title><link>https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/</link><pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/</guid><description>&lt;h3 id="下载时的圆形进度条">下载时的圆形进度条
+&lt;/h3>&lt;h5 id="示例图">示例图：
+&lt;/h5>&lt;!-- more -->
+&lt;p>&lt;img src="https://upload-images.jianshu.io/upload_images/8042403-4ab441e0e881395f.gif?imageMogr2/auto-orient/strip"
+loading="lazy"
+alt="download.gif"
+>&lt;/p>
+&lt;h5 id="代码如下">代码如下：
+&lt;/h5>&lt;pre tabindex="0">&lt;code>import UIKit
+func degreesToRadians(x:CGFloat) -&amp;gt; CGFloat{
+return CGFloat(double_t.pi) * (x) / 180.0
+}
+let ProgressDownload = 1
+class NewsYBDownLoadVIew: UIView {
+var _trackLayer:CAShapeLayer?
+var _progressLayer:CAShapeLayer?
+private var progress:CGFloat = 0
+//中间叉的图片
+private let cancelImg : UIImageView = {
+let image = UIImageView()
+image.image = UIImage(named: &amp;#34;news_yb_cancel_down&amp;#34;)
+return image
+}()
+// 在合适的位置设计setprogress 属性即可
+var setprogress:CGFloat = 0{
+willSet {
+changeProgress(progress: newValue)
+}
+}
+override func draw(_ rect: CGRect) {
+// Drawing code
+//创建一个track shape layer
+_trackLayer = CAShapeLayer()
+_trackLayer?.frame = self.bounds
+_trackLayer?.fillColor = UIColor.clear.cgColor
+_trackLayer?.strokeColor = UIColor(hexString: &amp;#34;#a6a6a6&amp;#34;)!.cgColor
+self.layer.addSublayer(_trackLayer!)
+//
+_trackLayer?.opacity = 1 //背景透明度
+_trackLayer?.lineCap = CAShapeLayerLineCap.round //指定线的边缘是园的
+_trackLayer?.lineWidth = CGFloat(ProgressDownload) //线的宽度
+/*
+         center：圆心的坐标
+         radius：半径
+         startAngle：起始的弧度
+         endAngle：圆弧结束的弧度
+         clockwise：true为顺时针，false为逆时针
+         方法里面主要是理解startAngle与endAngle
+         */
+let path = UIBezierPath.init(arcCenter: CGPoint(x:self.frame.size.width/2,y:(self.frame.height/2)), radius: self.frame.width/2, startAngle: degreesToRadians(x: -90), endAngle: degreesToRadians(x: 270), clockwise: true)
+_trackLayer?.path = path.cgPath
+// 把path传递給layer，然后layer会处理相应的渲染，整个逻辑和CoreGraph是一致的。
+_progressLayer = CAShapeLayer()
+_progressLayer?.frame = self.bounds
+_progressLayer?.fillColor = UIColor.clear.cgColor
+_progressLayer?.strokeColor = UIColor(hexString: &amp;#34;#FFB644&amp;#34;)!.cgColor
+_progressLayer?.lineCap = CAShapeLayerLineCap.round
+_progressLayer?.lineWidth = CGFloat(ProgressDownload)
+_progressLayer?.path = path.cgPath
+_progressLayer?.opacity = 1
+_progressLayer?.strokeEnd = 0
+self.layer.addSublayer(_progressLayer!)
+}
+override init(frame: CGRect) {
+super.init(frame: frame)
+self.backgroundColor = UIColor.white
+self.setUpSubViews()
+}
+required init?(coder aDecoder: NSCoder) {
+fatalError(&amp;#34;init(coder:) has not been implemented&amp;#34;)
+}
+func setUpSubViews(){
+self.addSubview(cancelImg)
+cancelImg.frame = CGRect(x: 5, y: 5, width: 9, height: 9)
+}
+func changeProgress(progress: CGFloat) {
+self.progress = progress
+_progressLayer?.strokeEnd = self.progress
+}
+}
+&lt;/code>&lt;/pre></description></item><item><title>iOS 获取相册中的视频列表</title><link>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%86%8C%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</link><pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%86%8C%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</guid><description>&lt;h4 id="获取相册中的视频文件">获取相册中的视频文件
+&lt;/h4>&lt;pre tabindex="0">&lt;code>func getAllvideo() {
+let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil)
+print(cameraRolls)
+guard cameraRolls.count &amp;gt; 0 else {
+return
+}
+for i in 0 ..&amp;lt; cameraRolls.count {
+let albumCollection = cameraRolls[i]
+// 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中
+LOGGER.debug(albumCollection.localizedTitle)
+let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil)
+for i in 0 ..&amp;lt; albumAssets.count {
+let asset = albumAssets[i]
+let filetype = asset.mediaType
+if filetype == PHAssetMediaType.video {
+videoMessage(asset: asset,count: albumAssets.count)
+}
+continue
+}
+}
+}
+&lt;/code>&lt;/pre>&lt;!-- more -->
+&lt;h4 id="获取视频信息">获取视频信息
+&lt;/h4>&lt;pre tabindex="0">&lt;code>// 获取PHAsset 对象的信息
+func videoMessage(asset: PHAsset , count: Int) {
+let options = PHVideoRequestOptions()
+options.version = .current
+options.deliveryMode = .automatic
+options.isNetworkAccessAllowed = true // 获取iCloud 中的视频
+var iconImage = UIImage()
+let option = PHImageRequestOptions()
+option.resizeMode = PHImageRequestOptionsResizeMode.fast
+// 获取视频对于的图片
+PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 116, height: 78), contentMode: PHImageContentMode.default, options: option) { (image, info) in
+if let img = image {
+iconImage = img
+}
+}
+PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { [weak self](asset, audioMix, info) in
+LOGGER.debug(asset)
+LOGGER.debug(audioMix)
+LOGGER.debug(info)
+guard let ass = asset else {
+return
+}
+guard let url = ass as? AVURLAsset else {
+return
+}
+var size : Float = 0
+do {
+let si = try url.url.resourceValues(forKeys: [URLResourceKey.fileSizeKey])
+size = Float(si.fileSize ?? 0) / (1024.0*1024.0)
+}catch {
+}
+// 计算时长
+let time = ass.duration
+let seconds = ceil(Float(time.value)/Float(time.timescale))
+let minute = String(format: &amp;#34;%ld&amp;#34;, Int(floor(seconds / 60)))
+let second = String(format: &amp;#34;%.2ld&amp;#34;, Int(seconds) % 60)
+let times = &amp;#34;\(minute):\(second)&amp;#34;
+//获取拍摄时间
+let date = ass.creationDate?.dateValue
+let dataFormat = DateFormatter()
+dataFormat.dateFormat = &amp;#34;yyyy:MM:dd HH:mm:ss&amp;#34;
+let cDate = dataFormat.string(from: date ?? Date(timeIntervalSinceNow: 0))
+let name = url.url.absoluteString.components(separatedBy: &amp;#34;/&amp;#34;).last?.components(separatedBy: &amp;#34;.&amp;#34;).first ?? &amp;#34;&amp;#34;
+let format = url.url.absoluteString.components(separatedBy: &amp;#34;/&amp;#34;).last?.components(separatedBy: &amp;#34;.&amp;#34;).last ?? &amp;#34;&amp;#34;
+let videoinfo = videoInfo(image: iconImage, name: name, time: times, urlStr: url.url.absoluteString, length: times, selected: false, date: cDate, size: size, second: String(format: &amp;#34;%.0f&amp;#34;, seconds),format: format)
+// 一定要在主线程中加入到数组，不然会出现崩溃
+DispatchQueue.main.async {
+self?.videoArr.append(videoinfo)
+self?._mainTableView.reloadData()
+}
+}
+}
+&lt;/code>&lt;/pre>&lt;h1 id="在测试中上述方法可以获取相册视频的文件地址但是在部分手机上将文件地址转换成data上传到服务器时出错了">在测试中，上述方法可以获取相册视频的文件地址，但是在部分手机上，将文件地址转换成data上传到服务器时出错了
+&lt;/h1>&lt;pre tabindex="0">&lt;code>let data : Data
+do {
+data = try Data.init(contentsOf: URL.init(string: path))
+manager?.put(data, key: key, token: token, complete: { [weak self](info, key, resp) in
+}, option: options)
+}catch let error {
+// 这里报错，打印出来是
+/*
+Error Domain=NSCocoaErrorDomain Code=257 &amp;#34;The file “IMG_0288.MP4” couldn’t be\
+opened because you don’t have permission to view it.&amp;#34; UserInfo=
+{NSFilePath=/var/mobile/Media/DCIM/100APPLE/IMG_0288.MP4,
+NSUnderlyingError=0x17d761b0 {Error Domain=NSPOSIXErrorDomain Code=1
+&amp;#34;Operation not permitted&amp;#34;}}
+*/
+print(error)
+LOGGER.debug(&amp;#34;filepath 转 data 失败&amp;#34;)
+HUDUtilInstance.showHUD(message: &amp;#34;获取视频失败&amp;#34;)
+}
+&lt;/code>&lt;/pre>&lt;p>通过查资料&lt;a class="link" href="https://io.upyun.com/2016/03/23/the-real-files-in-alasset-and-phasset/" target="_blank" rel="noopener"
+>https://io.upyun.com/2016/03/23/the-real-files-in-alasset-and-phasset/&lt;/a>
+代码调整为&lt;/p>
+&lt;h4 id="获取相册中的视频文件-1">获取相册中的视频文件
+&lt;/h4>&lt;pre tabindex="0">&lt;code>func getAllvideo() {
+let cameraRolls = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: nil)
+print(cameraRolls)
+guard cameraRolls.count &amp;gt; 0 else {
+return
+}
+for i in 0 ..&amp;lt; cameraRolls.count {
+let albumCollection = cameraRolls[i]
+// 获取相簿(albumCollection)下所有PHAsset对象并存储在集合albumAssets中
+LOGGER.debug(albumCollection.localizedTitle)
+let albumAssets = PHAsset.fetchAssets(in: albumCollection, options: nil)
+for i in 0 ..&amp;lt; albumAssets.count {
+let asset = albumAssets[i]
+let filetype = asset.mediaType
+// if filetype == PHAssetMediaType.video {
+// videoMessage(asset: asset,count: albumAssets.count)
+// }
+if filetype == PHAssetMediaType.video {
+// 通过asset 获取视频
+let assetResources = PHAssetResource.assetResources(for: asset)
+var resources : PHAssetResource?
+for assetRes in assetResources {
+if #available(iOS 9.1, *) {
+if assetRes.type == PHAssetResourceType.video || assetRes.type == PHAssetResourceType.pairedVideo {
+resources = assetRes
+}else{
+print(&amp;#34;失败&amp;#34;)
+}
+} else {
+// Fallback on earlier versions
+}
+}
+var fileName = &amp;#34;&amp;#34;
+guard let resource = resources ,resource.originalFilename.count &amp;gt; 0 else{
+continue
+}
+fileName = resource.originalFilename
+print(fileName)
+// 获取视频地址成功
+self.videoMessage(assetPH: asset, fileName: fileName,resource: resource)
+}
+}
+}
+}
+&lt;/code>&lt;/pre>&lt;h4 id="获取信息">获取信息
+&lt;/h4>&lt;pre tabindex="0">&lt;code>// 获取PHAsset 对象的信息
+func videoMessage(assetPH: PHAsset,fileName: String,resource: PHAssetResource) {
+let options = PHVideoRequestOptions()
+options.version = .current
+options.deliveryMode = .automatic
+options.isNetworkAccessAllowed = true
+var iconImage = UIImage()
+let option = PHImageRequestOptions()
+option.resizeMode = PHImageRequestOptionsResizeMode.fast
+// 获取视频对于的图片
+PHImageManager.default().requestImage(for: assetPH, targetSize: CGSize(width: 116, height: 78), contentMode: PHImageContentMode.default, options: option) { (image, info) in
+if let img = image {
+iconImage = img
+}
+}
+PHImageManager.default().requestAVAsset(forVideo: assetPH, options: options) { [weak self](asset, audioMix, info) in
+LOGGER.debug(asset)
+LOGGER.debug(audioMix)
+LOGGER.debug(info)
+guard let ass = asset else {
+return
+}
+guard let url = ass as? AVURLAsset else {
+return
+}
+var size : Float = 0
+do {
+let si = try url.url.resourceValues(forKeys: [URLResourceKey.fileSizeKey])
+size = Float(si.fileSize ?? 0) / (1024.0*1024.0)
+}catch {
+}
+// 计算时长
+let time = ass.duration
+let seconds = ceil(Float(time.value)/Float(time.timescale))
+let minute = String(format: &amp;#34;%ld&amp;#34;, Int(floor(seconds / 60)))
+let second = String(format: &amp;#34;%.2ld&amp;#34;, Int(seconds) % 60)
+let times = &amp;#34;\(minute):\(second)&amp;#34;
+//获取拍摄时间
+let date = ass.creationDate?.dateValue
+let dataFormat = DateFormatter()
+dataFormat.dateFormat = &amp;#34;yyyy:MM:dd HH:mm:ss&amp;#34;
+let cDate = dataFormat.string(from: date ?? Date(timeIntervalSinceNow: 0))
+// let name = url.url.absoluteString.components(separatedBy: &amp;#34;/&amp;#34;).last?.components(separatedBy: &amp;#34;.&amp;#34;).first ?? &amp;#34;&amp;#34;
+// let format = url.url.absoluteString.components(separatedBy: &amp;#34;/&amp;#34;).last?.components(separatedBy: &amp;#34;.&amp;#34;).last ?? &amp;#34;&amp;#34;
+let name = fileName.components(separatedBy: &amp;#34;.&amp;#34;).first ?? &amp;#34;&amp;#34;
+let format = fileName.components(separatedBy: &amp;#34;.&amp;#34;).last ?? &amp;#34;&amp;#34;
+let videoinfo = videoInfo(image: iconImage, name: name, time: times, urlStr: nil, length: times, selected: false, date: cDate, size: size, second: String(format: &amp;#34;%.0f&amp;#34;, seconds),format: format)
+self?.getVideo(asset: assetPH, fileName: fileName, resource: resource, info: videoinfo)
+// DispatchQueue.main.async {
+// self?.videoArr.append(videoinfo)
+// self?._mainTableView.reloadData()
+// }
+}
+}
+&lt;/code>&lt;/pre>&lt;h4 id="将视频写入到本地从本地读取">将视频写入到本地，从本地读取
+&lt;/h4>&lt;pre tabindex="0">&lt;code>// 获取视频
+func getVideo(asset: PHAsset,fileName: String,resource: PHAssetResource,info: videoInfo) {
+if #available(iOS 9.1, *) {
+if asset.mediaType == PHAssetMediaType.video || asset.mediaSubtypes == PHAssetMediaSubtype.photoLive {
+let pathMovieFile = NSTemporaryDirectory().appendingPathComponent(fileName)
+try? FileManager.default.removeItem(atPath: pathMovieFile)
+PHAssetResourceManager.default().writeData(for: resource, toFile: URL.init(fileURLWithPath: pathMovieFile), options: nil) { [weak self](error) in
+guard error == nil else {
+return
+}
+// do {
+//// let data = try Data.init(contentsOf: URL.init(fileURLWithPath: pathMovieFile))
+//// print(&amp;#34;转data成功&amp;#34;)
+// }catch let error{
+// print(error)
+// print(&amp;#34;转data失败&amp;#34;)
+// }
+var video = info
+video.setUrl(url: pathMovieFile) // 获取到视频url后存入到视频信息中
+// 刷新列表， 一定要在主线程中加入到数组，不然会出现崩溃
+DispatchQueue.main.async {
+self?.videoArr.append(video)
+self?._mainTableView.reloadData()
+}
+}
+}else{
+}
+} else {
+// Fallback on earlier versions
+}
+}
+// 转成data
+let data : Data
+do {
+data = try Data.init(contentsOf: URL.init(fileURLWithPath: path))
+}catch let error {
+print(error)
+LOGGER.debug(&amp;#34;filepath 转 data 失败&amp;#34;)
+HUDUtilInstance.showHUD(message: &amp;#34;获取视频失败&amp;#34;)
+}
+&lt;/code>&lt;/pre>&lt;h4 id="最后注意在适合的地方删除本地的缓存">最后注意在适合的地方删除本地的缓存
+&lt;/h4></description></item><item><title>NSAttributedString 详解</title><link>https://xingtianwuganqi.github.io/posts/nsattributedstring-%E8%AF%A6%E8%A7%A3/</link><pubDate>Wed, 29 Aug 2018 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/nsattributedstring-%E8%AF%A6%E8%A7%A3/</guid><description>&lt;h1 id="nsattributedstring-详解">NSAttributedString 详解
+&lt;/h1>&lt;ul>
+&lt;li>主要的几个属性：&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>@available(iOS 6.0, *)
+public static let font: NSAttributedStringKey // 字体，value是UIFont对象,默认：字体：Helvetica(Neue) 字号：12
+@available(iOS 6.0, *)
+public static let paragraphStyle: NSAttributedStringKey // 绘图的风格（居中，换行模式，间距等诸多风格），value是NSParagraphStyle对象
+@available(iOS 6.0, *)
+public static let foregroundColor: NSAttributedStringKey // 文字颜色，value是UIFont对象，默认值为黑色
+@available(iOS 6.0, *)
+public static let backgroundColor: NSAttributedStringKey // 背景色，value是UIFont，默认值为nil, 透明色
+@available(iOS 6.0, *)
+public static let ligature: NSAttributedStringKey // 字符连体，value是NSNumber，0 表示没有连体字符，1 表示使用默认的连体字符
+@available(iOS 6.0, *)
+public static let kern: NSAttributedStringKey // 字符间隔，value是NSNumber，正值间距加宽，负值间距变窄
+@available(iOS 6.0, *)
+public static let strikethroughStyle: NSAttributedStringKey // 删除线，value是NSNumber
+@available(iOS 6.0, *)
+public static let underlineStyle: NSAttributedStringKey // 下划线，value是NSNumber
+@available(iOS 6.0, *)
+public static let strokeColor: NSAttributedStringKey // 描绘边颜色，value是UIColor,默认值为nil，设置的属性同ForegroundColor
+@available(iOS 6.0, *)
+public static let strokeWidth: NSAttributedStringKey // 描边宽度，value是NSNumber，负值填充效果，正值中空效果
+@available(iOS 6.0, *)
+public static let shadow: NSAttributedStringKey // 阴影，value是NSShadow对象，默认值为nil
+@available(iOS 7.0, *)
+public static let textEffect: NSAttributedStringKey // 文字效果，value是NSString，目前只有图版印刷效果可用, 使用此属性指定的文字效果，如NSTextEffectLetterpressStyle。此属性的默认值为nil，表示没有文本效应
+@available(iOS 7.0, *)
+public static let attachment: NSAttributedStringKey // 附属，value是NSTextAttachment 对象,常用于文字图片混排
+@available(iOS 7.0, *)
+public static let link: NSAttributedStringKey // 链接，value是NSURL or NSString
+@available(iOS 7.0, *)
+public static let baselineOffset: NSAttributedStringKey // 基础偏移量，value是NSNumber对象，正值上偏，负值下偏, 默认值是0
+@available(iOS 7.0, *)
+public static let underlineColor: NSAttributedStringKey // 下划线颜色，value是UIColor对象,默认值为nil
+@available(iOS 7.0, *)
+public static let strikethroughColor: NSAttributedStringKey // 删除线颜色，value是UIColor，默认值为黑色
+@available(iOS 7.0, *)
+public static let obliqueness: NSAttributedStringKey // 字体倾斜，取值为 NSNumber （float）,正值右倾，负值左倾, 默认值是0(表示没有倾斜)
+@available(iOS 7.0, *)
+public static let expansion: NSAttributedStringKey //字体扁平化，取值为 NSNumber （float）,正值横向拉伸文本，负值横向压缩文本
+@available(iOS 7.0, *)
+public static let writingDirection: NSAttributedStringKey //设置文字书写方向，从左向右书写或者从右向左书写
+@available(iOS 6.0, *)
+public static let verticalGlyphForm: NSAttributedStringKey //垂直或者水平，value是 NSNumber，0 表示横排文本，1 表示竖排文本 在iOS中, 总是以横向排版
+&lt;/code>&lt;/pre>&lt;!-- more -->
+&lt;ul>
+&lt;li>
+&lt;p>NSParagraphStyle与NSMutableParagraphStyle包括以下属性&lt;/p>
+&lt;ul>
+&lt;li>alignment -&amp;gt;对齐方式&lt;/li>
+&lt;li>firstLineHeadIndent -&amp;gt;首行缩进&lt;/li>
+&lt;li>headIndent -&amp;gt;缩进&lt;/li>
+&lt;li>tailIndent -&amp;gt;尾部缩进&lt;/li>
+&lt;li>lineBreakMode -&amp;gt;断行方式&lt;/li>
+&lt;li>maximumLineHeight -&amp;gt;最大行高&lt;/li>
+&lt;li>minimumLineHeight -&amp;gt;最低行高&lt;/li>
+&lt;li>lineSpacing -&amp;gt;行距&lt;/li>
+&lt;li>paragraphSpacing -&amp;gt;段距&lt;/li>
+&lt;li>paragraphSpacingBefore -&amp;gt;段首空间&lt;/li>
+&lt;li>baseWritingDirection -&amp;gt;句子方向&lt;/li>
+&lt;li>lineHeightMultiple -&amp;gt;可变行高,乘因数。&lt;/li>
+&lt;li>hyphenationFactor -&amp;gt;连字符属性&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Swift 支持某个页面横竖屏切换与强制横屏</title><link>https://xingtianwuganqi.github.io/posts/swift-%E6%94%AF%E6%8C%81%E6%A8%AA%E7%AB%96%E5%B1%8F%E4%B8%8E%E5%BC%BA%E5%88%B6%E6%A8%AA%E5%B1%8F/</link><pubDate>Thu, 16 Aug 2018 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/swift-%E6%94%AF%E6%8C%81%E6%A8%AA%E7%AB%96%E5%B1%8F%E4%B8%8E%E5%BC%BA%E5%88%B6%E6%A8%AA%E5%B1%8F/</guid><description>&lt;p>&lt;a class="link" href="https://github.com/xingtianwuganqi/LandscapeDemo" target="_blank" rel="noopener"
+>Demo地址&lt;/a>&lt;/p>
+&lt;p>首先需要清晰几个概念&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>UIDeviceOrientation 设备的物理方向&lt;/p>
+&lt;ul>
+&lt;li>UIDeviceOrientation即我们手持的移动设备的Orientation，是一个三围空间，有六个方向&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>public enum UIDeviceOrientation : Int {
+case unknown
+case portrait // Device oriented vertically, home button on the bottom
+case portraitUpsideDown // Device oriented vertically, home button on the top
+case landscapeLeft // Device oriented horizontally, home button on the right
+case landscapeRight // Device oriented horizontally, home button on the left
+case faceUp // Device oriented flat, face up
+case faceDown // Device oriented flat, face down
+}
+&lt;/code>&lt;/pre>&lt;!-- more -->
+&lt;ul>
+&lt;li>UIInterfaceOrientation 界面的显示方向
+&lt;ul>
+&lt;li>UIInterfaceOrientation即我们看到的视图的Orientation，可以理解为statusBar所在的方向，是一个二维空间，有四个方向&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>public enum UIInterfaceOrientation : Int {
+case unknown
+case portrait
+case portraitUpsideDown
+case landscapeLeft
+case landscapeRight
+}
+&lt;/code>&lt;/pre>&lt;h2 id="支持某个页面横竖屏切换">支持某个页面横竖屏切换
+&lt;/h2>&lt;p>项目要求是要某个界面能够横竖屏显示，其他界面要竖屏显示&lt;/p>
+&lt;h3 id="1打开-general-中的-device-orientation-中的-landscapeleft-与-landscaperight">1.打开 General 中的 Device orientation 中的 landscapeLeft 与 landscapeRight
+&lt;/h3>&lt;p>&lt;img src="https://upload-images.jianshu.io/upload_images/8042403-66f6bdc02757d4fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/412"
+loading="lazy"
+alt="avatar"
+>&lt;/p>
+&lt;h3 id="2在appdelegate中设置app支持的方法">2.在AppDelegate中设置app支持的方法
+&lt;/h3>&lt;p>这里要设置一个全局变量，判断支持的方向&lt;/p>
+&lt;pre tabindex="0">&lt;code>var blockRotation = Bool()
+func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -&amp;gt; UIInterfaceOrientationMask {
+if blockRotation {
+return .allButUpsideDown
+}
+return .portrait
+}
+&lt;/code>&lt;/pre>&lt;h3 id="3在需要支持横竖屏的控制器中">3.在需要支持横竖屏的控制器中
+&lt;/h3>&lt;pre tabindex="0">&lt;code> let appDelegate = UIApplication.shared.delegate as! AppDelegate
+&lt;/code>&lt;/pre>&lt;p>在viewDidLoad或viewWillAppear中&lt;/p>
+&lt;pre tabindex="0">&lt;code>override func viewWillAppear(_ animated: Bool) {
+super.viewWillAppear(animated)
+appDelegate.blockRotation = true
+}
+&lt;/code>&lt;/pre>&lt;p>在viewWillDisAppear中&lt;/p>
+&lt;pre tabindex="0">&lt;code>override func viewWillDisappear(_ animated: Bool) {
+super.viewWillDisappear(animated)
+appDelegate.blockRotation = false
+//判断退出时是否是横屏
+if UIApplication.shared.statusBarOrientation.isLandscape {
+//是横屏让变回竖屏
+setNewOrientation(fullScreen: false)
+}
+}
+&lt;/code>&lt;/pre>&lt;p>退出时需要回到竖屏的状态&lt;/p>
+&lt;pre tabindex="0">&lt;code>//横竖屏
+func setNewOrientation(fullScreen: Bool) {
+if fullScreen { //横屏
+let resetOrientationTargert = NSNumber(integerLiteral: UIInterfaceOrientation.unknown.rawValue)
+UIDevice.current.setValue(resetOrientationTargert, forKey: &amp;#34;orientation&amp;#34;)
+let orientationTarget = NSNumber(integerLiteral: UIInterfaceOrientation.landscapeLeft.rawValue)
+UIDevice.current.setValue(orientationTarget, forKey: &amp;#34;orientation&amp;#34;)
+}else { //竖屏
+let resetOrientationTargert = NSNumber(integerLiteral: UIInterfaceOrientation.unknown.rawValue)
+UIDevice.current.setValue(resetOrientationTargert, forKey: &amp;#34;orientation&amp;#34;)
+let orientationTarget = NSNumber(integerLiteral: UIInterfaceOrientation.portrait.rawValue)
+UIDevice.current.setValue(orientationTarget, forKey: &amp;#34;orientation&amp;#34;)
+}
+}
+&lt;/code>&lt;/pre>&lt;h3 id="4判断页面方向">4.判断页面方向
+&lt;/h3>&lt;p>横竖屏这里已经实现了，难处理的是横竖屏后界面视图的适配
+用snapKit布局会方便很多，但有些布局，需要判断当前界面时竖屏还是横屏&lt;/p>
+&lt;pre tabindex="0">&lt;code>//statusBar的朝向
+UIApplication.shared.statusBarOrientation.isLandscape
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>statusBarOrientation 有两个属性，isLandscape、isPortrait 用来判断是横屏还是竖屏，这是对页面的判断&lt;/li>
+&lt;/ul>
+&lt;p>在有弹出窗的时候，在窗口弹出时判断是横屏还是竖屏，分别做不同的布局&lt;/p>
+&lt;h3 id="5判断设备物理方便改变">5.判断设备物理方便改变
+&lt;/h3>&lt;pre tabindex="0">&lt;code>//注册通知
+if !UIDevice.current.isGeneratingDeviceOrientationNotifications {
+//生成通知
+UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+}
+NotificationCenter.default.addObserver(self, selector: #selector(handleDeviceOrientationChange(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+&lt;/code>&lt;/pre>&lt;p>实现通知的方法&lt;/p>
+&lt;pre tabindex="0">&lt;code>@objc private func handleDeviceOrientationChange(notification: Notification) {
+let orientation = UIDevice.current.orientation
+switch orientation {
+case .portrait:
+/* iOS8之后,横屏UIScreen.main.bounds.width等于竖屏时的UIScreen.main.bounds.height
+let ScreenW = UIApplication.shared.statusBarOrientation.isLandscape ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width
+let ScreenH = UIApplication.shared.statusBarOrientation.isLandscape ? UIScreen.main.bounds.size.width : UIScreen.main.bounds.size.height
+ScreenW 记录的是屏幕短边的长度
+ScreenH 记录的是屏幕长边的长度
+*/
+showLabel.frame = CGRect(x: 0, y: 0, width: ScreenW, height: 20)
+case .landscapeLeft:
+showLabel.frame = CGRect(x: 0, y: 0, width: ScreenW, height: 20)
+case .landscapeRight:
+//横屏后做界面的调整的代码
+showLabel.frame = CGRect(x: 200, y: 200, width: 80, height: 20)
+default:
+break
+}
+}
+&lt;/code>&lt;/pre>&lt;p>最后移除通知&lt;/p>
+&lt;pre tabindex="0">&lt;code>deinit {
+//移除通知
+NotificationCenter.default.removeObserver(self)
+UIDevice.current.endGeneratingDeviceOrientationNotifications()
+}
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>
+&lt;p>这里用了两个判断：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>判断当前页面是横屏还是竖屏 UIApplication.shared.statusBarOrientation.isLandscape (页面方向)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>判断当前手机发生了横屏切换还是竖屏切换： 通知的方法 let orientation =UIDevice.current.orientation （设备的方向） 在通知的方法里完成布局&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;p>项目中比demo中布局复杂，使用这两个判断结合的方式进行布局&lt;/p>
+&lt;h2 id="强制横屏">强制横屏
+&lt;/h2>&lt;h3 id="1关闭-general-中的-device-orientation-中的-landscapeleft-与-landscaperight">1.关闭 General 中的 Device orientation 中的 landscapeLeft 与 landscapeRight
+&lt;/h3>&lt;p>&lt;img src="https://upload-images.jianshu.io/upload_images/8042403-8d726cda15e130f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+loading="lazy"
+alt="avatar"
+>&lt;/p>
+&lt;h3 id="2在appdelegate中设置app支持的方法-1">2.在AppDelegate中设置app支持的方法
+&lt;/h3>&lt;p>这里要设置一个全局变量，判断支持的方向，这里支持一个方向&lt;/p>
+&lt;pre tabindex="0">&lt;code>var blockRotation = Bool()
+func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -&amp;gt; UIInterfaceOrientationMask {
+if blockRotation {
+return .landscapeLeft
+}
+return .portrait
+}
+&lt;/code>&lt;/pre>&lt;h3 id="3-强制横屏方法">3. 强制横屏方法
+&lt;/h3>&lt;p>swift移除了NSInvocation, 只能桥接，需要创建桥接文件，注意桥接文件路径&lt;/p>
+&lt;pre tabindex="0">&lt;code>// h文件
+#import &amp;lt;Foundation/Foundation.h&amp;gt;
+#import &amp;lt;UIKit/UIKit.h&amp;gt;
+@interface DeviceTool : NSObject
++ (void)interfaceOrientation:(UIInterfaceOrientation )orientation;
+@end
+//m文件
+#import &amp;#34;DeviceTool.h&amp;#34;
+@interface DeviceTool ()
+@end
+@implementation DeviceTool
++ (void)interfaceOrientation:(UIInterfaceOrientation)orientation{
+if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+SEL selector = NSSelectorFromString(@&amp;#34;setOrientation:&amp;#34;);
+NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+[invocation setSelector:selector];
+[invocation setTarget:[UIDevice currentDevice]];
+int val = orientation;
+// 从2开始是因为0 1 两个参数已经被selector和target占用
+[invocation setArgument:&amp;amp;val atIndex:2];
+[invocation invoke];
+}
+}
+@end
+&lt;/code>&lt;/pre>&lt;h3 id="4实现横屏">4.实现横屏
+&lt;/h3>&lt;p>实现的是强制转landscapeLeft方向，与appDelegate中支持的方向一致，这样是否打开系统竖排方向锁定不影响强转方向&lt;/p>
+&lt;pre tabindex="0">&lt;code>@objc func buttonClick(btn:UIButton) {
+btn.isSelected = !btn.isSelected
+if btn.isSelected {
+appDelegate.blockRotation = true
+DeviceTool.interfaceOrientation(.landscapeLeft)
+}else{
+appDelegate.blockRotation = false
+DeviceTool.interfaceOrientation(.portrait)
+}
+}
+&lt;/code>&lt;/pre>&lt;p>&lt;a class="link" href="https://github.com/xingtianwuganqi/LandscapeDemo" target="_blank" rel="noopener"
+>附上Demo&lt;/a>&lt;/p></description></item><item><title>iOS 获取String中的url并用其他颜色显示</title><link>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/</link><pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/</guid><description>&lt;h3 id="这里用textview显示带url的string">这里用textView显示带url的String
+&lt;/h3>&lt;pre tabindex="0">&lt;code>fileprivate let detailText = UITextView().then { (textview)in
+textview.font = UIFont.systemFont(ofSize:14)
+textview.textColor = UIColor(hexString:&amp;#34;#333333&amp;#34;)
+textview.isEditable =false; //必须禁止输入，否则点击将弹出输入键盘
+textview.isScrollEnabled =false;
+}
+&lt;/code>&lt;/pre>&lt;!-- more -->
+&lt;h3 id="用这个方法获取url获取url的数组">用这个方法获取url,获取url的数组
+&lt;/h3>&lt;pre tabindex="0">&lt;code>private func getUrls(str:String) -&amp;gt; [String] {
+varurls = [String]()
+// 创建一个正则表达式对象
+do{
+let dataDetector = try NSDataDetector(types:NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue))
+// 匹配字符串，返回结果集
+let res = dataDetector.matches(in: str,options:NSRegularExpression.MatchingOptions(rawValue:0),range:NSMakeRange(0, str.count))
+// 取出结果
+for checkingRes in res {
+urls.append((str as NSString).substring(with: checkingRes.range))
+}
+}
+catch{
+print(error)
+}
+returnurls
+}
+&lt;/code>&lt;/pre>&lt;h3 id="获取url数组">获取url数组
+&lt;/h3>&lt;pre tabindex="0">&lt;code>let arr =self.getUrls(str: state.detail)
+let attrubuteStr = NSMutableAttributedString(string: state.detail)
+if arr.count &amp;gt;0{
+for i in arr {
+let nsString = NSString(string: state.detail)
+let bigRange = nsString.range(of: state.detail)
+let range = nsString.range(of: i)
+attrubuteStr.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize:14), range: bigRange)
+attrubuteStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(hexString:&amp;#34;#286efa&amp;#34;)!, range: range)
+attrubuteStr.addAttribute(NSAttributedStringKey.link, value: i, range: range)
+}
+}else{
+let nsString = NSString(string: state.detail)
+let bigRange = nsString.range(of: state.detail)
+attrubuteStr.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize:14), range: bigRange)
+}
+self.detailText.attributedText = attrubuteStr
+&lt;/code>&lt;/pre>&lt;h3 id="最后实现textview的代理方法点击url触发事件">最后实现textView的代理方法，点击url触发事件
+&lt;/h3>&lt;pre tabindex="0">&lt;code>func textView(_textView:UITextView, shouldInteractWith URL:URL, in characterRange:NSRange, interaction:UITextItemInteraction) -&amp;gt;Bool{
+self.navigatorService?.navigatorSubject.onNext(NavigatorItem.WebPage(&amp;#34;&amp;#34;,&amp;#34;\(URL)&amp;#34;))
+return false
+}
+&lt;/code>&lt;/pre></description></item></channel></rss>

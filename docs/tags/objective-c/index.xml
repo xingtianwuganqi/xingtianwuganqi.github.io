@@ -1,33 +1,259 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Objective-C on Ethan编程小站</title>
-    <link>https://xingtianwuganqi.github.io/tags/objective-c/</link>
-    <description>Recent content in Objective-C on Ethan编程小站</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://xingtianwuganqi.github.io/tags/objective-c/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>创建私有cocoaPods库及遇到的问题</title>
-      <link>https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
-      <description>1 .创建远端（github/gitlab）仓库 例如：创建-&amp;gt;projectMain作为项目主功能仓库，创建-&amp;gt;project_login为后期引用的（登录）组件化工程。创建-&amp;gt;project_SDK为后期引用的（基础组件SDK）组件化工程。创建-&amp;gt;project_Repo为版本管理仓库。。等等&#xA;2.创建本地仓库 例如：新建桌面文件A文件（如有多级仓库可在A文件下创建子文件a文件、b文件、c文件等）&#xA;3.将远端URL仓库克隆至本地: #关键代码 git clone http://xxxx.git tips cd 至A文件执行克隆，如：git clone http://project_login.git 4. 创建podspec文件（描述pod库版本文件）: pod spec create 工程名称 如：进入步骤3中克隆的项目文件，在隐藏文件.git同级执行：pod spec create project_login&#xA;tips pod spec create project_login 5.配置spec（描述pod库版本文件）:直接XCode打开或者文本编译器打开 Pod::Spec.new do |spec| spec.name = &amp;#34;project_login&amp;#34; spec.version = &amp;#34;1.0.2&amp;#34; spec.summary = &amp;#34;project_login.&amp;#34; spec.description = &amp;lt;&amp;lt;-DESC project_login DESC spec.homepage = &amp;#34;http://192.168.65.252/jingjun/project_login.git&amp;#34; spec.license = { :type =&amp;gt; &amp;#34;MIT&amp;#34;, :file =&amp;gt; &amp;#34;LICENSE&amp;#34; } spec.swift_version = &amp;#39;4.0&amp;#39; spec.author = { &amp;#34;jingjun&amp;#34; =&amp;gt; &amp;#34;254032134@qq.com&amp;#34; } spec.</description>
-    </item>
-    <item>
-      <title>Swift 简单的圆形进度条</title>
-      <link>https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/</link>
-      <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/</guid>
-      <description>下载时的圆形进度条 示例图： 代码如下： import UIKit func degreesToRadians(x:CGFloat) -&amp;gt; CGFloat{ return CGFloat(double_t.pi) * (x) / 180.0 } let ProgressDownload = 1 class NewsYBDownLoadVIew: UIView { var _trackLayer:CAShapeLayer? var _progressLayer:CAShapeLayer? private var progress:CGFloat = 0 //中间叉的图片 private let cancelImg : UIImageView = { let image = UIImageView() image.image = UIImage(named: &amp;#34;news_yb_cancel_down&amp;#34;) return image }() // 在合适的位置设计setprogress 属性即可 var setprogress:CGFloat = 0{ willSet { changeProgress(progress: newValue) } } override func draw(_ rect: CGRect) { // Drawing code //创建一个track shape layer _trackLayer = CAShapeLayer() _trackLayer?</description>
-    </item>
-    <item>
-      <title>iOS 获取String中的url并用其他颜色显示</title>
-      <link>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/</link>
-      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/</guid>
-      <description>这里用textView显示带url的String fileprivate let detailText&#x9;= UITextView().then { (textview)in textview.font = UIFont.systemFont(ofSize:14) textview.textColor = UIColor(hexString:&amp;#34;#333333&amp;#34;) textview.isEditable =false; //必须禁止输入，否则点击将弹出输入键盘 textview.isScrollEnabled =false; } 用这个方法获取url,获取url的数组 private func getUrls(str:String) -&amp;gt; [String] { varurls = [String]() // 创建一个正则表达式对象 do{ let dataDetector = try NSDataDetector(types:NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue)) // 匹配字符串，返回结果集 let res = dataDetector.matches(in: str,options:NSRegularExpression.MatchingOptions(rawValue:0),range:NSMakeRange(0, str.count)) // 取出结果 for checkingRes in res { urls.append((str as NSString).substring(with: checkingRes.range)) } } catch{ print(error) } returnurls } 获取url数组 let arr =self.getUrls(str: state.detail) let attrubuteStr = NSMutableAttributedString(string: state.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Objective-C on JunJing.dev</title><link>https://xingtianwuganqi.github.io/tags/objective-c/</link><description>Recent content in Objective-C on JunJing.dev</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Ethan</copyright><lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://xingtianwuganqi.github.io/tags/objective-c/index.xml" rel="self" type="application/rss+xml"/><item><title>创建私有cocoaPods库及遇到的问题</title><link>https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link><pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89cocoapods%E5%BA%93%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid><description>&lt;h4 id="1-创建远端githubgitlab仓库">1 .创建远端（github/gitlab）仓库
+&lt;/h4>&lt;blockquote>
+&lt;p>例如：创建-&amp;gt;projectMain作为项目主功能仓库，创建-&amp;gt;project_login为后期引用的（登录）组件化工程。创建-&amp;gt;project_SDK为后期引用的（基础组件SDK）组件化工程。创建-&amp;gt;project_Repo为版本管理仓库。。等等&lt;/p>&lt;/blockquote>
+&lt;h4 id="2创建本地仓库">2.创建本地仓库
+&lt;/h4>&lt;blockquote>
+&lt;p>例如：新建桌面文件A文件（如有多级仓库可在A文件下创建子文件a文件、b文件、c文件等）&lt;/p>&lt;/blockquote>
+&lt;h4 id="3将远端url仓库克隆至本地">3.将远端URL仓库克隆至本地:
+&lt;/h4>&lt;pre tabindex="0">&lt;code>#关键代码
+git clone http://xxxx.git
+tips
+cd 至A文件执行克隆，如：git clone http://project_login.git
+&lt;/code>&lt;/pre>&lt;!-- more -->
+&lt;h4 id="4-创建podspec文件描述pod库版本文件---pod-spec-create-工程名称">4. 创建podspec文件（描述pod库版本文件）: &lt;font color=#A52A2A> pod spec create 工程名称 &lt;/font>
+&lt;/h4>&lt;blockquote>
+&lt;p>如：进入步骤3中克隆的项目文件，在隐藏文件.git同级执行：pod spec create project_login&lt;/p>&lt;/blockquote>
+&lt;pre tabindex="0">&lt;code>tips
+pod spec create project_login
+&lt;/code>&lt;/pre>&lt;h4 id="5配置spec描述pod库版本文件直接xcode打开或者文本编译器打开">5.配置spec（描述pod库版本文件）:&lt;font color=#A52A2A>直接XCode打开或者文本编译器打开&lt;/font>
+&lt;/h4>&lt;pre tabindex="0">&lt;code>Pod::Spec.new do |spec|
+spec.name = &amp;#34;project_login&amp;#34;
+spec.version = &amp;#34;1.0.2&amp;#34;
+spec.summary = &amp;#34;project_login.&amp;#34;
+spec.description = &amp;lt;&amp;lt;-DESC
+project_login
+DESC
+spec.homepage = &amp;#34;http://192.168.65.252/jingjun/project_login.git&amp;#34;
+spec.license = { :type =&amp;gt; &amp;#34;MIT&amp;#34;, :file =&amp;gt; &amp;#34;LICENSE&amp;#34; }
+spec.swift_version = &amp;#39;4.0&amp;#39;
+spec.author = { &amp;#34;jingjun&amp;#34; =&amp;gt; &amp;#34;254032134@qq.com&amp;#34; }
+spec.platform = :ios, &amp;#34;10.0&amp;#34;
+spec.source = { :git =&amp;gt; &amp;#34;http://192.168.65.252/jingjun/project_login.git&amp;#34;, :tag =&amp;gt; &amp;#34;#{spec.version}&amp;#34; }
+spec.source_files = &amp;#34;project_name/swiftText/*.{swift}&amp;#34;
+spec.frameworks = &amp;#34;Foundation&amp;#34;,&amp;#34;UIKit&amp;#34;
+#spec.ios.dependency &amp;#34;SDWebImage&amp;#34;
+spec.ios.dependency &amp;#34;SnapKit&amp;#34;
+spec.ios.dependency &amp;#34;RxSwift&amp;#34;
+end
+&lt;/code>&lt;/pre>&lt;p>备注版：&lt;/p>
+&lt;pre tabindex="0">&lt;code>#项目中有很多配置，下面仅书写必要的几个（一定注意配置正确）：
+#下面`spec`有的直接写是`s` 注意上下对应
+Pod::Spec.new do |spec|
+#项目名称一般与创建的远端仓库名字一致
+spec.name = &amp;#34;mPaaS_Login&amp;#34;
+#对应版本号（所有代码但凡改动就需要修改版本号：最大保持四位数：1.0.0.0）
+spec.version = &amp;#34;1.0.0&amp;#34;
+#简单描述
+spec.summary = &amp;#34;A short description of mPaaS_Login.&amp;#34;
+#简单功能描述：一定注意`&amp;lt;&amp;lt;-DESC` 在第一行，描述内容另起一行 ，最后`DESC`一行包裹
+spec.description = &amp;lt;&amp;lt;-DESC
+login
+DESC
+#文件页可随意写一般写仓库链接
+spec.homepage = &amp;#34;http://192.168.66.56:9080/iOS_HF/mPaaS_Login.git&amp;#34;
+#协议
+spec.license = { :type =&amp;gt; &amp;#34;MIT&amp;#34; }
+#作者（版权）
+spec.author = &amp;#34;ws&amp;#34;
+#支持平台版本 如还支持其他平台可百度拓展
+spec.platform = :ios, &amp;#34;8.0&amp;#34;
+#项目源文件地址 远端仓库地址
+spec.source = { :git =&amp;gt; &amp;#34;http://192.168.66.56:9080/iOS_HF/mPaaS_Login.git&amp;#34;, :tag =&amp;gt; &amp;#34;#{spec.version}&amp;#34; }
+#仓库暴露的一些文件，如有引用其他动态库、静态库百度拓展
+spec.ios.source_files = &amp;#34;HF_NHBankA/HF_NHBankA/Sources/**/*.{h,m,mm}&amp;#34;
+#添加依赖 如有依赖下面检测合法性记得加上文件源
+spec.ios.dependency &amp;#34;HF_mPaaSSDK&amp;#34;
+#收尾
+end
+&lt;/code>&lt;/pre>&lt;p>source_files 极易写错，注意是从project_login.podspec同级文件夹开始，一层一层写&lt;/p>
+&lt;pre tabindex="0">&lt;code>// 如果swiftText文件下就是.swift文件就在swiftText后面写/*
+spec.source_files = &amp;#34;project_name/swiftText/*.{swift}&amp;#34;
+// 如果swiftText文件下还有文件夹，可以写成
+spec.source_files = &amp;#34;project_name/swiftText/**/*.{h,m,swift}&amp;#34;
+&lt;/code>&lt;/pre>&lt;h4 id="6-检测sepc文件配置是否正确pod-lib-lint-allow-warnings">6. 检测sepc文件配置是否正确:&lt;font color=#A52A2A>pod lib lint &amp;ndash;allow-warnings&lt;/font>
+&lt;/h4>&lt;pre tabindex="0">&lt;code>pod lib lint是只从本地验证你的pod能否通过验证
+pod spec lint是从本地和远程验证你的pod能否通过验证
+`--allow-warnings`意思是忽略警告，一般都加，如有报错，针对错误问题修改配置文件，如配置文件确认无误，并提示编译问题可按照： ([https://www.jianshu.com/p/88180b4d2ab7](https://www.jianshu.com/p/88180b4d2ab7))文章配置.。无误后继续`步骤7`
+#万能检测命令：sources 为对应版本管理库地址
+pod lib lint --allow-warnings --sources=http://192.168.66.56:9080/iOS_HF/mPaaS_Repo.git --use-libraries --skip-import-validation --verbose
+#万能检测命令：sources 为对应版本管理库地址
+pod lib lint --allow-warnings --sources=http://192.168.66.56:9080/iOS_HFAPP/HFmPaaS_Repo.git --use-libraries --skip-import-validation --verbose
+&lt;/code>&lt;/pre>&lt;h4 id="7-提交代码至远端仓库">7. 提交代码至远端仓库
+&lt;/h4>&lt;pre tabindex="0">&lt;code>#添加文件
+git add .
+#提交添加描述
+git commit -m &amp;#34;描述&amp;#34;
+#推送至远端仓库
+git push
+#打tag标签,与`步骤5`中spec文件版本保持一致
+git tag 1.0.0
+#推送本次所打的所有tag标签到远程origin。
+git push --tags
+// 注意.podspec 中的文件.version 和 tag 相同
+&lt;/code>&lt;/pre>&lt;h4 id="8-首次将本地私有仓库与远程管理库连接-pod-repo-add-版本管理仓库名-远端版本管理仓库地址urlgit">8. （首次）将本地私有仓库与远程管理库连接 :&lt;font color=#A52A2A>pod repo add 版本管理仓库名 远端版本管理仓库地址url.git&lt;/font>
+&lt;/h4>&lt;pre tabindex="0">&lt;code>#关联版本仓库
+pod repo add project_login &amp;#39;http://192.168.65.252/jingjun/project_login.git&amp;#39;
+&lt;/code>&lt;/pre>&lt;h4 id="9-将spec文件推送到远程管理库--pod-repo-push-版本管理仓库名-组件库名podspec-use-libraries-allow-warnings-verbose">9. 将spec文件推送到远程管理库 : &lt;font color=#A52A2A>pod repo push 版本管理仓库名 组件库名.podspec &amp;ndash;use-libraries &amp;ndash;allow-warnings &amp;ndash;verbose&lt;/font>
+&lt;/h4>&lt;pre tabindex="0">&lt;code>pod repo push project_login project_login.podspec --use-libraries --allow-warnings --verbose
+#万能推送命令(需改成自己的文件名称)：
+project_login project_login.podspec --sources=&amp;#39;http://192.168.65.252/jingjun/project_login.git,https://github.com/CocoaPods/Specs.git&amp;#39; --use-libraries --skip-import-validation --verbose --allow-warnings
+&lt;/code>&lt;/pre>&lt;h4 id="10引用私有库">10.引用私有库
+&lt;/h4>&lt;p>在主项目里Podfile文件里添加需要引用私有源地址:&lt;/p>
+&lt;pre tabindex="0">&lt;code>source &amp;#39;http://192.168.65.252/jingjun/project_login.git&amp;#39;
+source &amp;#39;https://github.com/CocoaPods/Specs.git&amp;#39;
+pod &amp;#39;project_login&amp;#39;,:git =&amp;gt; &amp;#39;http://192.168.65.252/jingjun/project_login.git&amp;#39;
+&lt;/code>&lt;/pre>&lt;h3 id="遇到的问题">遇到的问题
+&lt;/h3>&lt;h4 id="1encountered-an-unknown-error-unable-to-find-a-specification-for-xxxx-depended-upon-by-xxxx">1）Encountered an unknown error (Unable to find a specification for &lt;code>xxxx&lt;/code> depended upon by &lt;code>xxxx&lt;/code>
+&lt;/h4>&lt;p>// 给&amp;ndash;sources 赋值的时候，一定也要带上官方的源。&lt;/p>
+&lt;blockquote>
+&lt;p>官方的源：https://github.com/CocoaPods/Specs.git&lt;/p>&lt;/blockquote>
+&lt;pre tabindex="0">&lt;code>pod repo push project_login project_login.podspec --sources=&amp;#39;http://192.168.65.252/jingjun/project_login.git,https://github.com/CocoaPods/Specs.git&amp;#39; --use-libraries --skip-import-validation --verbose --allow-warnings
+&lt;/code>&lt;/pre>&lt;h4 id="2-the-project_loginpodspec-specification-does-not-validate">2）[!] The &lt;code>project_login.podspec&lt;/code> specification does not validate.
+&lt;/h4>&lt;blockquote>
+&lt;p>.podspec文件存在警告时不能成功push。加 &amp;ndash;allow-warnings&lt;/p>&lt;/blockquote>
+&lt;pre tabindex="0">&lt;code>// 在后面加上 --allow-warnings
+pod repo push project_login project_login.podspec --sources=&amp;#39;http://192.168.65.252/jingjun/project_login.git,https://github.com/CocoaPods/Specs.git&amp;#39; --use-libraries --skip-import-validation --verbose --allow-warnings
+&lt;/code>&lt;/pre>&lt;h4 id="3error--ios-unknown-encountered-an-unknown-error-unable-to-find-a-specification-for-rxswift--depended-upon-by-rxswiftextcore">3）ERROR | [iOS] unknown: Encountered an unknown error (Unable to find a specification for &lt;code>RxSwift &lt;/code> depended upon by &lt;code>RxSwiftExt/Core&lt;/code>
+&lt;/h4>&lt;pre tabindex="0">&lt;code>// 首先在.podspec 文件中加
+spec.ios.dependency &amp;#34;SnapKit&amp;#34;
+spec.ios.dependency &amp;#34;RxSwift&amp;#34;
+// 再在项目的podfile 文件中加入
+source &amp;#39;https://github.com/CocoaPods/Specs.git&amp;#39;
+source &amp;#39;http://192.168.65.252/jingjun/project_login.git&amp;#39;
+// 然后调用命令
+pod repo push project_login project_login.podspec --sources=&amp;#39;http://192.168.65.252/jingjun/project_login.git,https://github.com/CocoaPods/Specs.git&amp;#39; --use-libraries --skip-import-validation --verbose --allow-warnings
+&lt;/code>&lt;/pre>&lt;h4 id="4error--ios-unknown-encountered-an-unknown-error-poddslerror-during-validation">4）ERROR | [iOS] unknown: Encountered an unknown error (Pod::DSLError) during validation
+&lt;/h4>&lt;blockquote>
+&lt;p>一般是.podspec 文件格式有问题，检测是否错误输入&lt;/p>&lt;/blockquote>
+&lt;p>####5）[!] CocoaPods could not find compatible versions for pod &amp;ldquo;PLMediaStreamingKit&amp;rdquo;:  In Podfile:    PLMediaStreamingKit (~&amp;gt; 2.3.2)Specs satisfying the &lt;code>PLMediaStreamingKit (~&amp;gt; 2.3.2)&lt;/code> dependency were found, but they required a higher minimum deployment target.&lt;/p>
+&lt;pre tabindex="0">&lt;code>spec.platform 的iOS版本要与主文件中 platform :ios , &amp;#39;7.0&amp;#39;，的版本一致
+&lt;/code>&lt;/pre></description></item><item><title>Swift 简单的圆形进度条</title><link>https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/</link><pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/swift-%E7%AE%80%E5%8D%95%E7%9A%84%E5%9C%86%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/</guid><description>&lt;h3 id="下载时的圆形进度条">下载时的圆形进度条
+&lt;/h3>&lt;h5 id="示例图">示例图：
+&lt;/h5>&lt;!-- more -->
+&lt;p>&lt;img src="https://upload-images.jianshu.io/upload_images/8042403-4ab441e0e881395f.gif?imageMogr2/auto-orient/strip"
+loading="lazy"
+alt="download.gif"
+>&lt;/p>
+&lt;h5 id="代码如下">代码如下：
+&lt;/h5>&lt;pre tabindex="0">&lt;code>import UIKit
+func degreesToRadians(x:CGFloat) -&amp;gt; CGFloat{
+return CGFloat(double_t.pi) * (x) / 180.0
+}
+let ProgressDownload = 1
+class NewsYBDownLoadVIew: UIView {
+var _trackLayer:CAShapeLayer?
+var _progressLayer:CAShapeLayer?
+private var progress:CGFloat = 0
+//中间叉的图片
+private let cancelImg : UIImageView = {
+let image = UIImageView()
+image.image = UIImage(named: &amp;#34;news_yb_cancel_down&amp;#34;)
+return image
+}()
+// 在合适的位置设计setprogress 属性即可
+var setprogress:CGFloat = 0{
+willSet {
+changeProgress(progress: newValue)
+}
+}
+override func draw(_ rect: CGRect) {
+// Drawing code
+//创建一个track shape layer
+_trackLayer = CAShapeLayer()
+_trackLayer?.frame = self.bounds
+_trackLayer?.fillColor = UIColor.clear.cgColor
+_trackLayer?.strokeColor = UIColor(hexString: &amp;#34;#a6a6a6&amp;#34;)!.cgColor
+self.layer.addSublayer(_trackLayer!)
+//
+_trackLayer?.opacity = 1 //背景透明度
+_trackLayer?.lineCap = CAShapeLayerLineCap.round //指定线的边缘是园的
+_trackLayer?.lineWidth = CGFloat(ProgressDownload) //线的宽度
+/*
+         center：圆心的坐标
+         radius：半径
+         startAngle：起始的弧度
+         endAngle：圆弧结束的弧度
+         clockwise：true为顺时针，false为逆时针
+         方法里面主要是理解startAngle与endAngle
+         */
+let path = UIBezierPath.init(arcCenter: CGPoint(x:self.frame.size.width/2,y:(self.frame.height/2)), radius: self.frame.width/2, startAngle: degreesToRadians(x: -90), endAngle: degreesToRadians(x: 270), clockwise: true)
+_trackLayer?.path = path.cgPath
+// 把path传递給layer，然后layer会处理相应的渲染，整个逻辑和CoreGraph是一致的。
+_progressLayer = CAShapeLayer()
+_progressLayer?.frame = self.bounds
+_progressLayer?.fillColor = UIColor.clear.cgColor
+_progressLayer?.strokeColor = UIColor(hexString: &amp;#34;#FFB644&amp;#34;)!.cgColor
+_progressLayer?.lineCap = CAShapeLayerLineCap.round
+_progressLayer?.lineWidth = CGFloat(ProgressDownload)
+_progressLayer?.path = path.cgPath
+_progressLayer?.opacity = 1
+_progressLayer?.strokeEnd = 0
+self.layer.addSublayer(_progressLayer!)
+}
+override init(frame: CGRect) {
+super.init(frame: frame)
+self.backgroundColor = UIColor.white
+self.setUpSubViews()
+}
+required init?(coder aDecoder: NSCoder) {
+fatalError(&amp;#34;init(coder:) has not been implemented&amp;#34;)
+}
+func setUpSubViews(){
+self.addSubview(cancelImg)
+cancelImg.frame = CGRect(x: 5, y: 5, width: 9, height: 9)
+}
+func changeProgress(progress: CGFloat) {
+self.progress = progress
+_progressLayer?.strokeEnd = self.progress
+}
+}
+&lt;/code>&lt;/pre></description></item><item><title>iOS 获取String中的url并用其他颜色显示</title><link>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/</link><pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate><guid>https://xingtianwuganqi.github.io/posts/ios-%E8%8E%B7%E5%8F%96string%E4%B8%AD%E7%9A%84url%E5%B9%B6%E7%94%A8%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/</guid><description>&lt;h3 id="这里用textview显示带url的string">这里用textView显示带url的String
+&lt;/h3>&lt;pre tabindex="0">&lt;code>fileprivate let detailText = UITextView().then { (textview)in
+textview.font = UIFont.systemFont(ofSize:14)
+textview.textColor = UIColor(hexString:&amp;#34;#333333&amp;#34;)
+textview.isEditable =false; //必须禁止输入，否则点击将弹出输入键盘
+textview.isScrollEnabled =false;
+}
+&lt;/code>&lt;/pre>&lt;!-- more -->
+&lt;h3 id="用这个方法获取url获取url的数组">用这个方法获取url,获取url的数组
+&lt;/h3>&lt;pre tabindex="0">&lt;code>private func getUrls(str:String) -&amp;gt; [String] {
+varurls = [String]()
+// 创建一个正则表达式对象
+do{
+let dataDetector = try NSDataDetector(types:NSTextCheckingTypes(NSTextCheckingResult.CheckingType.link.rawValue))
+// 匹配字符串，返回结果集
+let res = dataDetector.matches(in: str,options:NSRegularExpression.MatchingOptions(rawValue:0),range:NSMakeRange(0, str.count))
+// 取出结果
+for checkingRes in res {
+urls.append((str as NSString).substring(with: checkingRes.range))
+}
+}
+catch{
+print(error)
+}
+returnurls
+}
+&lt;/code>&lt;/pre>&lt;h3 id="获取url数组">获取url数组
+&lt;/h3>&lt;pre tabindex="0">&lt;code>let arr =self.getUrls(str: state.detail)
+let attrubuteStr = NSMutableAttributedString(string: state.detail)
+if arr.count &amp;gt;0{
+for i in arr {
+let nsString = NSString(string: state.detail)
+let bigRange = nsString.range(of: state.detail)
+let range = nsString.range(of: i)
+attrubuteStr.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize:14), range: bigRange)
+attrubuteStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(hexString:&amp;#34;#286efa&amp;#34;)!, range: range)
+attrubuteStr.addAttribute(NSAttributedStringKey.link, value: i, range: range)
+}
+}else{
+let nsString = NSString(string: state.detail)
+let bigRange = nsString.range(of: state.detail)
+attrubuteStr.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize:14), range: bigRange)
+}
+self.detailText.attributedText = attrubuteStr
+&lt;/code>&lt;/pre>&lt;h3 id="最后实现textview的代理方法点击url触发事件">最后实现textView的代理方法，点击url触发事件
+&lt;/h3>&lt;pre tabindex="0">&lt;code>func textView(_textView:UITextView, shouldInteractWith URL:URL, in characterRange:NSRange, interaction:UITextItemInteraction) -&amp;gt;Bool{
+self.navigatorService?.navigatorSubject.onNext(NavigatorItem.WebPage(&amp;#34;&amp;#34;,&amp;#34;\(URL)&amp;#34;))
+return false
+}
+&lt;/code>&lt;/pre></description></item></channel></rss>

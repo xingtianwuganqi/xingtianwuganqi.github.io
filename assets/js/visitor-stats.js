@@ -32,13 +32,13 @@
             if (usable) {
                 display({ site_uv: cached.site_uv, site_pv: cached.site_pv,
                     page_pv: cached.path === location.pathname ? cached.page_pv : undefined });
-                setStatus('统计服务暂不可用，显示上次数据');
+                setStatus('显示上次统计数据');
             } else {
-                setStatus('统计服务暂不可用');
+                setStatus('');
             }
             fields.forEach(field => {
                 const node = document.getElementById('busuanzi_value_' + field);
-                if (node && node.textContent === '—') node.textContent = '暂不可用';
+                if (node && node.textContent === '—') node.textContent = '-';
             });
         };
         window[callback] = data => {

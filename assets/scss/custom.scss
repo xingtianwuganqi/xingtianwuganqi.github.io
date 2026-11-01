@@ -69,6 +69,12 @@
     }
 }
 .article-time { flex-wrap: wrap; }
+.visitor-stats-status {
+    color: var(--body-text-color);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    &:empty { display: none; }
+}
 @media (prefers-reduced-motion: reduce) {
     .article-list > article { transition: none; }
     .article-list > article:hover { transform: none; }

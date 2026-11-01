@@ -15,6 +15,10 @@
     </section>
     {{ end }}
 
+    {{ if .Site.Params.analytics.busuanzi.enabled }}
+    <div id="visitor-stats-status" class="visitor-stats-status" role="status">{{ if hugo.IsServer }}本地预览不计数{{ end }}</div>
+    {{ end }}
+
     <section class="powerby">
         {{ with .Site.Params.footer.customText }}
             {{ . | safeHTML }} <br/>

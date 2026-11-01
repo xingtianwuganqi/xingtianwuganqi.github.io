@@ -1,3 +1,8 @@
-{{ if and .Site.Params.analytics.busuanzi.enabled (not hugo.IsServer) }}
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+{{ if .Site.Params.analytics.busuanzi.enabled }}
+{{ if hugo.IsServer }}
+<script>document.querySelectorAll('[id^="busuanzi_value_"]').forEach(function (node) { node.title = '本地预览不计数，请在正式网站查看'; });</script>
+{{ else }}
+{{ $stats := resources.Get "js/visitor-stats.js" | minify | fingerprint }}
+<script defer src="{{ $stats.RelPermalink }}"></script>
+{{ end }}
 {{ end }}

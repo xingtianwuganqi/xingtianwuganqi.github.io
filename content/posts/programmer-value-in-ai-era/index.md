@@ -6,6 +6,7 @@ draft: false
 author: JunJing
 description: "AI让写代码越来越便宜，但理解问题、做出判断、承担结果的能力，并不会因此自动变得廉价。"
 summary: "从学习 AI Agent 和独立开发的经历出发，重新思考程序员的工程经验、产品判断与解决问题的价值。"
+categories: [随笔]
 tags: [程序人生]
 ---
 

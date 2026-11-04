@@ -6,6 +6,7 @@ draft: false
 author: JunJing
 description: "技术决定了我们能做什么，但代码之外的能力，可能决定我们能走多远。"
 summary: "做了十多年程序员，关于产品思维、表达能力、商业思维、AI 协作、财务管理和自我管理的思考。"
+categories: [随笔]
 tags: [程序人生]
 ---
 
